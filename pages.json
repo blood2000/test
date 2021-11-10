@@ -1,0 +1,220 @@
+{
+	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+		{
+			"path" : "pages/public/applogin",
+			"style" :
+			{
+				"navigationBarTitleText": "登录",
+				"navigationStyle": "custom"
+			}
+		},{
+			"path": "pages/index/index",
+			"style": {
+				"navigationBarTitleText": "工作台",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+		},{
+			"path" : "pages/index/search",
+			"style" :
+			{
+				"navigationBarTitleText": "搜索",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+		},{
+			"path": "pages/mailList/index",
+			"style": {
+				"navigationBarTitleText": "通讯录",
+				"enablePullDownRefresh": false
+			}
+		},{
+			"path": "pages/user/index",
+			"style": {
+				"navigationBarTitleText": "我的",
+				"enablePullDownRefresh": false
+			}
+		},{
+			"path" : "pages/public/login",
+			"style" :
+			{
+				"navigationBarTitleText": "登录",
+				"enablePullDownRefresh": false
+			}
+		},{
+			"path" : "pages/public/auth",
+			"style" :
+			{
+				"navigationBarTitleText": "授权登录",
+				"enablePullDownRefresh": false
+			}
+		},{
+			"path" : "pages/test/test",
+			"style" :
+			{
+				"navigationBarTitleText": "测试用",
+				"enablePullDownRefresh": false
+			}
+		},{
+			"path" : "pages/register/index",
+			"style" :
+			{
+				"navigationBarTitleText": "注册",
+				"navigationStyle": "custom"
+			}
+		},{
+			"path" : "pages/mailList/userList",
+			"style" :
+			{
+				"navigationBarTitleText": "通讯录用户",
+				"navigationStyle": "custom"
+			}
+		},{
+			"path" : "pages/mailList/userInfo",
+			"style" :
+			{
+				"navigationBarTitleText": "用户信息",
+				"enablePullDownRefresh": false
+			}
+		},{
+			"path" : "pages/upcoming/index", 
+			"style" :
+			{
+				"navigationBarTitleText": "待办",
+				"enablePullDownRefresh": true
+			}
+		},{
+			"path" : "pages/flowable/index", 
+			"style" :
+			{
+				"navigationBarTitleText": "申请",
+				"enablePullDownRefresh": false
+			}
+		},{
+			"path" : "pages/record/index",
+			"style" :
+			{
+				"navigationBarTitleText": "详情",
+				"enablePullDownRefresh": false
+			}
+		},{
+			"path" : "pages/user/userInfo",
+			"style" :
+			{
+				"navigationBarTitleText": "我的信息",
+				"enablePullDownRefresh": false
+			}
+		},{
+			"path" : "pages/user/feedback",
+			"style" :
+			{
+				"navigationBarTitleText": "产品反馈",
+				"enablePullDownRefresh": false
+			}
+		},{
+			"path" : "pages/applicate/index",
+			"style" :
+			{
+				"navigationBarTitleText": "应用中心",
+				"enablePullDownRefresh": false
+			}
+		},{
+			"path" : "pages/applicate/notificationCenter/website/index",
+			"style" :
+			{
+				"navigationBarTitleText": "官网新闻",
+				"enablePullDownRefresh": true
+			}
+		},{
+			"path" : "pages/applicate/notificationCenter/website/detail",
+			"style" :
+			{
+				"navigationBarTitleText": "新闻详情",
+				"app-plus": {
+					"titleNView": {
+						"type": "transparent"
+					}
+				},
+				"h5": {
+					"titleNView": {
+						"type": "transparent"
+					}
+				}
+			}
+		},{
+			"path" : "pages/applicate/notificationCenter/notice/index",
+			"style" :
+			{
+				"navigationBarTitleText": "通知公告",
+				"enablePullDownRefresh": true
+			}
+		},{
+			"path" : "pages/data/index", 
+			"style" :
+			{
+				"navigationBarTitleText": "报表",
+				"enablePullDownRefresh": false
+			}
+		},{
+			"path" : "pages/applicate/daily/index", 
+			"style" :
+			{
+				"navigationBarTitleText": "日报",
+				"enablePullDownRefresh": false
+			}
+		}
+    ],
+	"globalStyle": {
+		"navigationBarTextStyle": "black",
+		"navigationBarTitleText": "超好运",
+		"navigationBarBackgroundColor": "#fff",
+		"backgroundColor": "#F5F5F5",
+		"onReachBottomDistance": 100,
+		"rpxCalcBaseDeviceWidth": 1024
+	},
+	"tabBar": {
+		"color": "#ACACAC",
+		"selectedColor": "#1678FF",
+		"backgroundColor": "#FFFFFF",
+		"borderStyle": "white",
+		"list": [{
+				"pagePath": "pages/upcoming/index",
+				"iconPath": "static/tabbar/upcoming.png",
+				"selectedIconPath": "static/tabbar/upcoming_cur.png",
+				"text": "待办"
+			},{
+				"pagePath": "pages/applicate/index",
+				"iconPath": "static/tabbar/app.png",
+				"selectedIconPath": "static/tabbar/app_cur.png",
+				"text": "应用"
+			},{
+				"pagePath": "pages/mailList/index",
+				"iconPath": "static/tabbar/mail.png",
+				"selectedIconPath": "static/tabbar/mail_cur.png",
+				"text": "通讯录"
+			},{
+				"pagePath": "pages/user/index",
+				"iconPath": "static/tabbar/my.png",
+				"selectedIconPath": "static/tabbar/my_cur.png",
+				"text": "我的"
+		}],
+		"midButton": {
+			"width": "75px",
+			"height": "60px",
+			"iconPath": "static/tabbar/work.png",
+			"iconWidth": "40px"
+		}
+	},
+	"condition": { //模式配置，仅开发期间生效
+		"current": 0, //当前激活的模式(list 的索引项)
+		"list": [{
+			"name": "启动页", //模式名称
+			"path": "pages/index/index", //启动页面，必选
+			"query": "" //启动参数，在页面的onLoad函数里面得到
+		},{
+			"name": "测试", //模式名称
+			"path": "pages/test/test", //启动页面，必选
+			"query": "" //启动参数，在页面的onLoad函数里面得到
+		}]
+	}
+}

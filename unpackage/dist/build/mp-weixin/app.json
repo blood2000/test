@@ -1,0 +1,31 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/public/login",
+    "pages/public/auth",
+    "pages/waybillScan/index",
+    "pages/waybillScan/receive",
+    "pages/waybillScan/load",
+    "pages/waybillScan/unload",
+    "pages/waybillScan/success",
+    "pages/protocol/collection",
+    "pages/protocol/contractDriver",
+    "pages/equipment/bindEquipment",
+    "pages/test/test",
+    "pages/register/index"
+  ],
+  "subPackages": [],
+  "window": {
+    "navigationBarTextStyle": "black",
+    "navigationBarTitleText": "超好运",
+    "navigationBarBackgroundColor": "#fff",
+    "backgroundColor": "#fff"
+  },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于小程序位置接口的效果展示"
+    }
+  },
+  "usingComponents": {},
+  "sitemapLocation": "sitemap.json"
+}

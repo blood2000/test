@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "扫码成功",
+  "enablePullDownRefresh": false,
+  "usingComponents": {
+    "receive": "/pages/waybillScan/receive",
+    "load": "/pages/waybillScan/load",
+    "un-load": "/pages/waybillScan/unload"
+  }
+}
