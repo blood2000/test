@@ -63,8 +63,8 @@
 					uni.removeStorageSync('token');
 					uni.showToast({title: '退出登录成功',icon: 'none', duration: 1000});
 					setTimeout(() => {
-						uni.navigateTo({
-							url: '/pages/public/applogin'
+						uni.reLaunch({
+							url: '/pages/public/login'
 						});
 					}, 1000)
 				})

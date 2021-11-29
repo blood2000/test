@@ -3,7 +3,7 @@
 		<image class="bg-img" :src="img" mode=""></image>
 		<view class="top-section">
 			<view class="top-title">您好</view>
-			<view class="top-tag">欢迎使用至简协同</view>
+			<view class="top-tag">欢迎使用至简集运APP</view>
 		</view>
 		<view class="form-section">
 			<view class="form-frame flex align-center" :class="telno?'border-on':'border-no'">

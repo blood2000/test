@@ -1,0 +1,9 @@
+{
+    "id": "xl-slider-verify",
+    "name": "简单的滑动验证",
+    "version": "1.0.1",
+    "description": "简单的滑动验证，多端通用",
+    "keywords": [
+        "滑动验证"
+    ]
+}

@@ -54,6 +54,33 @@ export function login(data) {
 	});
 }
 
+// 手机号短信登录
+export function smsLogin(data) {
+	return uniRequest({
+		url: baseURL + '/auth/sms_login',
+		method: 'post',
+		data: data
+	});
+}
+
+// 发送短信
+export function sendSms(data) {
+	return uniRequest({
+		url: baseURL + '/auth/send_sms',
+		method: 'post',
+		data: data
+	});
+}
+
+// 校验短信验证码是否有效
+export function checkCaptcha(data) {
+	return uniRequest({
+		url: baseURL + '/auth/check_captcha',
+		method: 'post',
+		data: data
+	});
+}
+
 // 退出登录
 export function loginOut() {
 	return uniRequest({

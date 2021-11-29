@@ -1,17 +1,33 @@
 {
 	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
 		{
-			"path" : "pages/public/applogin",
-			"style" :
-			{
-				"navigationBarTitleText": "登录",
-				"navigationStyle": "custom"
-			}
-		},{
 			"path": "pages/index/index",
 			"style": {
 				"navigationBarTitleText": "工作台",
 				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+		},{
+			"path" : "pages/public/login",
+			"style" :
+			{
+				"navigationBarTitleText": "登录",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+		},{
+			"path" : "pages/public/code",
+			"style" :
+			{
+				"navigationBarTitleText": "验证码",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+		},{
+			"path" : "pages/public/applogin",
+			"style" :
+			{
+				"navigationBarTitleText": "登录",
 				"navigationStyle": "custom"
 			}
 		},{
@@ -32,13 +48,6 @@
 			"path": "pages/user/index",
 			"style": {
 				"navigationBarTitleText": "我的",
-				"enablePullDownRefresh": false
-			}
-		},{
-			"path" : "pages/public/login",
-			"style" :
-			{
-				"navigationBarTitleText": "登录",
 				"enablePullDownRefresh": false
 			}
 		},{

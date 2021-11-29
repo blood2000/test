@@ -96,6 +96,9 @@
 	.margin-mtb{
 		margin: 20upx 0;
 	}
+	.margin-slr{
+		margin: 0 10upx;
+	}
 	.padding-stb{
 		padding: 10upx 0;
 	}
