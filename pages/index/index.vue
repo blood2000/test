@@ -2,49 +2,15 @@
 	<view class="home-page">
 		<view class="search-container">
 			<view :style="{height:statusBarHeight*2+'upx'}"></view>
-			<view class="flex justify-between margin-mtop">
-				<view class="flex align-center">
-					<image class="top-avatar shadow-warp bg-white" :src="userInfo.avatar?userInfo.avatar:avatar" mode=""></image>
-					<view class="margin-mleft">
-						<view class="flex align-center">
-							<view class="size32 text-bold">Hi,{{userInfo.userName}}</view>
-							<view v-if="userInfo.rank" class="top-tag flex align-center round" :class="'tag-' + userInfo.rank">
-								<image v-if="userInfo.rank<=3" class="top-favor" src="/static/workbench/star_c.png" mode=""></image>
-								<image v-if="userInfo.rank>3 && userInfo.rank<=6" class="top-favor" src="/static/workbench/star_b.png" mode=""></image>
-								<image v-if="userInfo.rank>6 && userInfo.rank<=9" class="top-favor" src="/static/workbench/star_s.png" mode=""></image>
-								<image v-if="userInfo.rank==10" class="top-favor" src="/static/workbench/star_d.png" mode=""></image>
-								<image v-if="userInfo.rank==11" class="top-favor" src="/static/workbench/star_g.png" mode=""></image>
-								{{ selectDictLabel(rankOptions, userInfo.rank)}}
-							</view>
-						</view>
-						<view class="text-tag size20 margin-stop">{{userInfo.org?userInfo.org.orgName:'暂无'}} | {{userInfo.postName}}</view>
-					</view>
-				</view>
-				<view class="size52 cuIcon-add text-bold" @click="moreFunction = !moreFunction"></view>
-			</view>
 			<view class="cu-bar search">
 				<view class="search-form" @click="navToSearch">
 					<text class="cuIcon-search"></text>
-					<input :adjust-position="false" type="text" placeholder="请输入关键内容搜索" disabled confirm-type="search" />
+					<input :adjust-position="false" type="text" placeholder="请输入车牌号搜索" disabled confirm-type="search" />
 				</view>
 			</view>
 		</view>
-		<!-- 扫码 -->
-		<view v-if="moreFunction" class="more-section" :style="{top:statusBarHeight*2 + 90 +'upx'}">
-			<view class="more-frame" @click="moreFunction = !moreFunction">
-				<view class="more-triangle cuIcon-triangleupfill size52"></view>
-			</view>
-			<view class="flex align-center padding">
-				<image style="height: 32upx;width: 32upx;" src="/static/icon_scan.png" mode=""></image>
-				<view class="text-white margin-mleft">扫一扫</view>
-			</view>
-			<view class="flex align-center padding">
-				<image style="height: 32upx;width: 32upx;" src="/static/icon_card.png" mode=""></image>
-				<view class="text-white margin-mleft">我的名片</view>
-			</view>
-		</view>
 		<view class="bg-white" style="padding: 0 0 24upx;">
-			<view v-if="system==='ios'" :style="{height:statusBarHeight*2 + 240 +'upx'}"></view>
+			<view v-if="system==='ios'" :style="{height:statusBarHeight*2 + 100 +'upx'}"></view>
 			<view v-else :style="{height:statusBarHeight*2 + 200 +'upx'}"></view>
 			<!-- 官网新闻 -->
 			<swiper class="screen-swiper square-dot" :indicator-dots="true" :circular="true" :autoplay="true" interval="5000" duration="500">
@@ -62,9 +28,7 @@
 					<view class="app-name">{{item.menuName}}</view>
 				</view>
 				<view class="app-frame flex flex-direction align-center justify-center" @tap="showModal" data-target="DrawerModalR">
-					<view class="app-icon flex align-center justify-center">
-						<image style="height: 36upx;width: 36upx;" :src="'/static/icons/svg/app-add.svg'" mode=""></image>
-					</view>
+					<image class="app-icon" src="/static/workbench/icon_add.png" mode=""></image>
 					<view class="app-name">添加</view>
 				</view>
 			</view>
@@ -94,36 +58,31 @@
 			</view>
 		</view>
 		<!-- 通知 -->
-		<view v-if="noticeList.length>0" class="app-container margin-mtop padding-m flex align-center justify-between" @click="navToNotice">
-			<view class="flex align-center">
-				<image style="width: 44upx; height: 39upx; margin-right: 16upx;" src="/static/icon_notice.png" mode=""></image>
-				<view style="width: calc(100vw - 200upx);">
-					<view v-for="(item,index) in noticeList" :key="index" class="flex align-center justify-between size26">
-						<view class="flex align-center">
-							<text class="cuIcon-title size24 text-orange margin-sright"></text>
-							<text class="notice">{{item.noticeTitle || item.title}}</text>
-						</view>
-						<l-time class="margin-mleft" color="#999" computeMax="MM" :dateFormat="'MM/dd hh:mm'" :text="new Date(item.createTime)"></l-time>
-					</view>
+		<view class="app-container margin-mtop padding-m flex align-center justify-between" @click="navToNotice">
+			<image class="notice-img" src="/static/workbench/icon_notice.png" mode=""></image>
+			<view style="width: calc(100vw - 220upx);padding-left: 20upx;border-left: 1upx solid #EEEEEE;">
+				 <!-- v-for="(item,index) in noticeList" :key="index" -->
+				<view class="flex align-center justify-between size26">
+					<view class="todo-title">运输计划名称</view>
+					<!-- new Date(item.createTime) -->
+					<l-time class="margin-mleft" color="#999" computeMax="MM" :dateFormat="'MM/dd hh:mm'" :text="new Date() "></l-time>
+				</view>
+				<view class="flex align-center justify-between size26">
+					<view class="todo-title">运输计划名称</view>
+					<!-- new Date(item.createTime) -->
+					<l-time class="margin-mleft" color="#999" computeMax="MM" :dateFormat="'MM/dd hh:mm'" :text="new Date() "></l-time>
 				</view>
 			</view>
-			<text class="cuIcon-right text-gray"></text>
 		</view>
 		<!-- 待办 -->
 		<view class="app-container padding-m margin-mtop">
 			<view class="flex align-center justify-between">
-				<view class="todo-title">待办事项 <text class="text-red">{{todoTotal}}</text></view>
-				<view class="text-gray" @click="navToUpcoming">更多<text class="cuIcon-right"></text></view>
+				 <!-- <text class="text-red">{{todoTotal}}</text> -->
+				<view class="todo-title">今日事项</view>
+				<!-- <view class="text-gray" @click="navToUpcoming">更多<text class="cuIcon-right"></text></view> -->
 			</view>
-			<view v-for="(item,index) in todoDataList" :key="index" class="todo-frame flex align-center justify-between" @click="navToInfoPage(item, '1')">
-				<view class="flex align-center">
-					<view class="todo-type">{{item.procDefName.slice(0,2)}}</view>
-					<view class="margin-mleft" style="max-width: 396upx;">
-						<view class="text-bold ellipsis">{{item.startUserName}}提交的{{item.procDefName}}</view>
-						<view class="size24 text-tag margin-stop">{{ parseTime( item.createTime, '{m}/{d} {h}:{i}')}}</view>
-					</view>
-				</view>
-				<l-time class="margin-mleft" color="#999" computeMax="MM" :dateFormat="'MM/dd hh:mm'" :text="new Date(item.createTime)"></l-time>
+			<view class="flex align-center justify-center" style="height: 500upx;">
+				<image class="todo-img" src="/static/workbench/icon_expect.png" mode=""></image>
 			</view>
 		</view>
 		<!-- 底部操作栏 -->
@@ -539,7 +498,7 @@
 	position: fixed;
 	top: 0;
 	width: 100vw;
-	background: linear-gradient(180deg, #EFF5FF 0%, #FFFFFF 100%);
+	// background: linear-gradient(180deg, #EFF5FF 0%, #FFFFFF 100%);
 	z-index: 10;
 	padding: 0 32upx;
 	.search-form{
@@ -599,14 +558,19 @@
 		// padding: 20upx 0 0;
 		// border-top: 1upx solid #EBEBEB;
 	}
+	.notice-img{
+		width: 97upx;
+		height: 87upx;
+	}
 }
 .app-frame{
-	width: 20%;
+	width: 25%;
 	margin: 30upx 0 0;
 	text-align: center;
 	.app-icon{
-		height: 70upx;
-		width: 70upx;
+		height: 80upx;
+		width: 80upx;
+		margin-bottom: 18upx;
 	}
 	.app-name{
 		font-size: 24upx;
@@ -678,5 +642,9 @@
 	font-weight: 400;
 	line-height: 84upx;
 	color: #FFFFFF;
+}
+.todo-img{
+	width: 419upx;
+	height: 262upx;
 }
 </style>

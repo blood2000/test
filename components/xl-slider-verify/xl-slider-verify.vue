@@ -10,9 +10,8 @@
 			<view class="front" :style="{width: value+'%',backgroundColor:forntBg}">
 				
 			</view>
-			<view class="slider-block" :style="{left:!value?'0':'calc('+value+'% - '+sliderBlockWidth+'rpx)',width:sliderBlockWidth+'rpx'}">
-				<text class="cuIcon-right text-black"></text>
-				<text class="cuIcon-right text-black"></text>
+			<view class="slider-block" style="line-height: 120upx;" :style="{left:!value?'0':'calc('+value+'% - '+sliderBlockWidth+'rpx)',width:sliderBlockWidth+'rpx'}">
+				<image style="height: 50upx; width: 50upx;" src="/static/icon_slide.png" mode=""></image>
 			</view>
 			<slider :value="value" @change="sliderChange" :disabled="disabled" activeColor="transparent" @changing="changing" block-color="transparent" :block-size="35" backgroundColor="transparent" style="position: absolute;top:6rpx;left: 0;z-index: 5;width: 88%;" />
 		</view>

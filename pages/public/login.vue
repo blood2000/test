@@ -19,7 +19,7 @@
 		data(){
 			return {
 				params: {
-					telno: null,
+					telno: uni.getStorageSync('telno') || null,
 					type: 'login'
 				}
 			}

@@ -7,7 +7,7 @@
 				<text class="cuIcon-back size36 text-white" @click="navBack"></text>
 				<view class="search-form">
 					<text class="cuIcon-search"></text>
-					<input v-model="form.keyword" :adjust-position="false" type="text" placeholder="搜索" confirm-type="search" @input="clearInput" @confirm="getList" />
+					<input v-model="form.keyword" :adjust-position="false" type="text" placeholder="请输入车牌号搜索" confirm-type="search" @input="clearInput" @confirm="getList" />
 					<text v-if="showClearIcon" class="cuIcon-roundclose size30 text-red" @click="clearIcon"></text>
 					<text class="search-btn" @click="getList">搜索</text>
 				</view>
