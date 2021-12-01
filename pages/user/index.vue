@@ -26,6 +26,30 @@
 			</view>
 		</view>
 		<button class="btn-yes" type="default" @click="loginOut">退出登录</button>
+		
+		<!-- 底部操作栏 -->
+		<view :class="system==='android'?'bar-frame-android':system==='ios'?'bar-frame-ios':'bar-frame'" class="cu-bar tabbar bg-white">
+			<view class="action" @click="navToMail">
+				<image class="bar-icon" src="/static/tabbar/mail.png" mode=""></image>
+				<view class="bar-title">通讯录</view>
+			</view>
+			<view class="action" @click="navToApp">
+				<image class="bar-icon" src="/static/tabbar/app.png" mode=""></image>
+				<view class="bar-title">应用</view>
+			</view>
+			<view class="text-center bar-workframe" @click="navToWork">
+				<image class="bar-work" src="/static/tabbar/work.png" mode=""></image>
+			</view>
+			<view class="action" @click="navToUpcoming">
+				<image class="bar-icon" src="/static/tabbar/upcoming.png" mode=""></image>
+				<view class="bar-title">待办</view>
+			</view>
+			<view class="action" @click="navToUser">
+				<image class="bar-icon" src="/static/tabbar/my_cur.png" mode=""></image>
+				<view class="bar-title bar-ontitle">我的</view>
+			</view>
+		</view>
+		<view style="height: 100upx;"></view>
 	</view>
 </template>
 
@@ -40,10 +64,13 @@
 				},
 				// 默认头像
 				avatar: '/static/avatar.png',
+				system: null
 			}
 		},
 		onLoad() {
-			
+			uni.hideTabBar({});
+			const res = uni.getSystemInfoSync()
+			this.system = res.platform;
 		},
 		onShow() {
 			this.userInfo = uni.getStorageSync('userInfo');
@@ -77,6 +104,32 @@
 			navToFeedback() {
 				uni.navigateTo({
 					url: "/pages/user/feedback"
+				})
+			},
+			navToUpcoming(){
+				uni.setStorageSync('TabCur', 1);
+				uni.switchTab({
+					url:'/pages/upcoming/index'
+				})
+			},
+			navToApp(){
+				uni.switchTab({
+					url:'/pages/applicate/index'
+				})
+			},
+			navToMail(){
+				uni.switchTab({
+					url:'/pages/mailList/index'
+				})
+			},
+			navToUser(){
+				uni.switchTab({
+					url:'/pages/user/index'
+				})
+			},
+			navToWork(){
+				uni.switchTab({
+					url:'/pages/index/index'
 				})
 			}
 		}

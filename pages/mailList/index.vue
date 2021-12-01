@@ -3,26 +3,60 @@
 		<view class="organize flex align-center justify-between" @click="handleShow">
 			<view class="flex align-center">
 				<image class="organize-icon" src="/static/icons/svg/mail/mail-orgtop.svg" mode=""></image>
-				<view class="organize-title">{{ orgInfo && orgInfo.rootOrgName }}</view>
+				<!-- <view class="organize-title">{{ orgInfo && orgInfo.rootOrgName }}</view> -->
+				<view class="organize-title">{{orgInfo.rootOrgName}}</view>
 			</view>
 			<text class="organize-click" :class="showChild?'cuIcon-fold':'cuIcon-unfold'" />
 		</view>
 		<view v-if="showChild">
+			<!-- 主管列表 -->
+			<view v-for="(res, index) in leaderList" :key="res.userCode"  class="organize flex align-center" @click="navToUserInfo(res)">
+				<image class="organize-icon shadow-warp bg-white" :src="res.avatar? res.avatar:avatar" mode="aspectFill"></image>
+				<view>
+					<view class="organize-title">{{ res.userName }}</view>
+					<view class="organize-position">{{ res.postName }}</view>
+				</view>
+			</view>
+			<!-- '110409', '66389dbe97ec4c86ab2e8afa602b2981' -->
 			<view class="organize flex align-center justify-between" :class="organizeName === '组织架构'? 'organize-bg':''" @click="handleShowOrg(orgInfo.rootOrgId, orgInfo.rootOrgCode, '组织架构')">
 				<view class="flex align-center">
-					<view class="organize-shu" />
+					<view class="organize-shu"></view>
 					<view class="organize-title">组织架构</view>
 				</view>
 				<text class="cuIcon-right text-gray"></text>
 			</view>
 			<view class="organize flex align-center justify-between" :class="organizeName === orgInfo.orgNameByUser? 'organize-bg':''" @click="handleShowOrg(orgInfo.orgIdByUser, orgInfo.orgCodeByUser, orgInfo.orgNameByUser)">
 				<view class="flex align-center">
-					<view class="organize-shu" />
+					<view class="organize-shu"></view>
 					<view class="organize-title">{{ orgInfo.orgNameByUser }}</view>
 				</view>
 				<text class="cuIcon-right text-gray"></text>
 			</view>
 		</view>
+		
+		<!-- 底部操作栏 -->
+		<view :class="system==='android'?'bar-frame-android':system==='ios'?'bar-frame-ios':'bar-frame'" class="cu-bar tabbar bg-white">
+			<view class="action" @click="navToMail">
+				<image class="bar-icon" src="/static/tabbar/mail_cur.png" mode=""></image>
+				<view class="bar-title bar-ontitle">通讯录</view>
+			</view>
+			<view class="action" @click="navToApp">
+				<image class="bar-icon" src="/static/tabbar/app.png" mode=""></image>
+				<view class="bar-title">应用</view>
+			</view>
+			<view class="text-center bar-workframe" @click="navToWork">
+				<image class="bar-work" src="/static/tabbar/work.png" mode=""></image>
+			</view>
+			<view class="action" @click="navToUpcoming">
+				<image class="bar-icon" src="/static/tabbar/upcoming.png" mode=""></image>
+				<view class="bar-title">待办</view>
+			</view>
+			<view class="action" @click="navToUser">
+				<image class="bar-icon" src="/static/tabbar/my.png" mode=""></image>
+				<view class="bar-title">我的</view>
+			</view>
+		</view>
+		<!-- <view style="height: 100upx;"></view> -->
 	</view>
 </template>
 
@@ -34,13 +68,22 @@
 		},
 		data() {
 			return {
+				// 默认头像
+				avatar: '/static/avatar.png',
 				showChild: true,
 				orgInfo: {},
-				organizeName: ''
+				organizeName: '',
+				leaderList: [],
+				system: null
 			}
+		},
+		mounted() {
 		},
 		onLoad(option) {
 			this.getList();
+			uni.hideTabBar({});
+			const res = uni.getSystemInfoSync()
+			this.system = res.platform;
 		},
 		onShow() {
 			
@@ -59,7 +102,13 @@
 				getAddressBook('7beacecadf4341fa81232781beb71b08').then(response => {
 					this.orgInfo = response.data;
 					// this.handleShowOrg(response.data.orgIdByUser, response.data.orgCodeByUser, this.orgInfo.orgNameByUser);
+					this.getLeader('110409', '66389dbe97ec4c86ab2e8afa602b2981')
 					uni.hideLoading();
+				});
+			},
+			getLeader(orgId, orgCode) {
+				getAddressList(orgId, orgCode).then(res => {
+					this.leaderList = res.data.childLeaderUserList;
 				});
 			},
 			handleShow() {
@@ -81,6 +130,37 @@
 				// 	this.tabList = res.data.parentDeptList;
 				// });
 			},
+			navToUserInfo(res) {
+				uni.navigateTo({
+					url: '/pages/mailList/userInfo?userCode=' + res.userCode
+				})
+			},
+			navToUpcoming(){
+				uni.setStorageSync('TabCur', 1);
+				uni.switchTab({
+					url:'/pages/upcoming/index'
+				})
+			},
+			navToApp(){
+				uni.switchTab({
+					url:'/pages/applicate/index'
+				})
+			},
+			navToMail(){
+				uni.switchTab({
+					url:'/pages/mailList/index'
+				})
+			},
+			navToUser(){
+				uni.switchTab({
+					url:'/pages/user/index'
+				})
+			},
+			navToWork(){
+				uni.switchTab({
+					url:'/pages/index/index'
+				})
+			}
 		}
 	}
 </script>

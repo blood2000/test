@@ -53,6 +53,7 @@
 	@import "colorui/main.css";
 	@import "colorui/icon.css";
 	@import "common/uni.css";
+	@import "@/common/css/tabbar.scss";
 	/* @import "@/common/css/icon.scss";
 	@import "@/common/font/index.scss"; */
 	/*每个页面公共css */

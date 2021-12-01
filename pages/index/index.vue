@@ -87,9 +87,9 @@
 		</view>
 		<!-- 底部操作栏 -->
 		<view :class="system==='android'?'bar-frame-android':system==='ios'?'bar-frame-ios':'bar-frame'" class="cu-bar tabbar bg-white">
-			<view class="action" @click="navToUpcoming">
-				<image class="bar-icon" src="/static/tabbar/upcoming.png" mode=""></image>
-				<view class="bar-title">待办</view>
+			<view class="action" @click="navToMail">
+				<image class="bar-icon" src="/static/tabbar/mail.png" mode=""></image>
+				<view class="bar-title">通讯录</view>
 			</view>
 			<view class="action" @click="navToApp">
 				<image class="bar-icon" src="/static/tabbar/app.png" mode=""></image>
@@ -98,9 +98,9 @@
 			<view class="text-center bar-workframe">
 				<image class="bar-work" src="/static/tabbar/work.png" mode=""></image>
 			</view>
-			<view class="action" @click="navToMail">
-				<image class="bar-icon" src="/static/tabbar/mail.png" mode=""></image>
-				<view class="bar-title">通讯录</view>
+			<view class="action" @click="navToUpcoming">
+				<image class="bar-icon" src="/static/tabbar/upcoming.png" mode=""></image>
+				<view class="bar-title">待办</view>
 			</view>
 			<view class="action" @click="navToUser">
 				<image class="bar-icon" src="/static/tabbar/my.png" mode=""></image>
@@ -166,6 +166,7 @@
 		},
 		onLoad(option) {
 			this.userInfo = uni.getStorageSync('userInfo');
+			uni.hideTabBar({});
 			const res = uni.getSystemInfoSync()
 			this.system = res.platform;
 			this.statusBarHeight = res.statusBarHeight
@@ -397,81 +398,6 @@
 }
 ::v-deep .cu-modal{
 	z-index: 100;
-}
-.bar-frame{
-	position: fixed;
-	bottom: 0;
-	z-index: 10;
-	width: 100%;
-	color: #ACACAC;
-	font-size: 20upx;
-	.bar-icon{
-		margin-bottom: 6upx;
-		margin-top: 2upx;
-		width: 48upx;
-		height: 48upx;
-	}
-	.bar-workframe{
-		width: 150upx;
-		.bar-work{
-			height: 80upx;
-			width: 80upx;
-			position: relative;
-			bottom: 15px;
-		}
-	}
-}
-.bar-frame-ios{
-	position: fixed;
-	bottom: 0;
-	z-index: 10;
-	width: 100%;
-	height: 92upx !important;
-	min-height: 92upx !important;
-	color: #ACACAC;
-	.bar-icon{
-		// margin-bottom: 6upx;
-		// margin-top: 2upx;
-		width: 44upx;
-		height: 44upx;
-	}
-	.bar-title{
-		font-size: 20upx;
-		-webkit-transform:scale(0.9);
-	}
-	.bar-workframe{
-		width: 138upx;
-		.bar-work{
-			height: 74upx;
-			width: 74upx;
-			position: relative;
-			bottom: 20upx;
-		}
-	}
-}
-.bar-frame-android{
-	position: fixed;
-	bottom: 0;
-	z-index: 10;
-	width: 100%;
-	height: 106upx !important;
-	min-height: 106upx !important;
-	color: #ACACAC;
-	font-size: 20upx;
-	.bar-icon{
-		margin-bottom: 6upx;
-		width: 50upx;
-		height: 50upx;
-	}
-	.bar-workframe{
-		width: 156upx;
-		.bar-work{
-			height: 84upx;
-			width: 84upx;
-			position: relative;
-			bottom: 28upx;
-		}
-	}
 }
 .screen-swiper{
 	margin: 0 32upx;
