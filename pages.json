@@ -178,6 +178,13 @@
 				"navigationBarTitleText": "应用",
 				"enablePullDownRefresh": false
 			}
+		},{
+			"path" : "pages/applicate/addUsually/index", 
+			"style" :
+			{
+				"navigationBarTitleText": "添加应用",
+				"enablePullDownRefresh": false
+			}
 		}
     ],
 	"globalStyle": {
