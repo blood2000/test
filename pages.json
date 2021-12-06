@@ -173,14 +173,26 @@
 				"navigationBarTitleText": "日报",
 				"enablePullDownRefresh": false
 			}
+		},{
+			"path" : "pages/webview/index", 
+			"style" :
+			{
+				"navigationBarTitleText": "应用",
+				"enablePullDownRefresh": false
+			}
+		},{
+			"path" : "pages/applicate/addUsually/index", 
+			"style" :
+			{
+				"navigationBarTitleText": "添加应用",
+				"enablePullDownRefresh": false
+			}
 		},
-		
 		{
 			"path": "pages/transportPlan/index",
 			"style": {
-				"navigationStyle": "custom" ,// 隐藏系统导航栏
-				"navigationBarTitleText": "运输计划",
-				"enablePullDownRefresh": false
+				"navigationStyle": "custom",
+				"navigationBarTitleText": "运输计划"
 			}
 		}
     ],
@@ -207,6 +219,11 @@
 				"iconPath": "static/tabbar/app.png",
 				"selectedIconPath": "static/tabbar/app_cur.png",
 				"text": "应用"
+			},{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/tabbar/mail.png",
+				"selectedIconPath": "static/tabbar/mail_cur.png",
+				"text": "工作台"
 			},{
 				"pagePath": "pages/mailList/index",
 				"iconPath": "static/tabbar/mail.png",

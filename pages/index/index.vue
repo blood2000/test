@@ -5,7 +5,7 @@
 			<view class="cu-bar search">
 				<view class="search-form" @click="navToSearch">
 					<text class="cuIcon-search"></text>
-					<input :adjust-position="false" type="text" placeholder="请输入车牌号搜索" disabled confirm-type="search" />
+					<input :adjust-position="false" type="text" placeholder="请输入关键字搜索" disabled confirm-type="search" />
 				</view>
 			</view>
 		</view>
@@ -63,15 +63,14 @@
 			<view style="width: calc(100vw - 220upx);padding-left: 20upx;border-left: 1upx solid #EEEEEE;">
 				 <!-- v-for="(item,index) in noticeList" :key="index" -->
 				<view class="flex align-center justify-between size26">
-					<view class="todo-title">运输计划名称</view>
+					<view class="todo-title">暂无消息</view>
 					<!-- new Date(item.createTime) -->
-					<l-time class="margin-mleft" color="#999" computeMax="MM" :dateFormat="'MM/dd hh:mm'" :text="new Date() "></l-time>
+					<!-- <l-time class="margin-mleft" color="#999" computeMax="MM" :dateFormat="'MM/dd hh:mm'" :text="new Date() "></l-time> -->
 				</view>
-				<view class="flex align-center justify-between size26">
+				<!-- <view class="flex align-center justify-between size26">
 					<view class="todo-title">运输计划名称</view>
-					<!-- new Date(item.createTime) -->
 					<l-time class="margin-mleft" color="#999" computeMax="MM" :dateFormat="'MM/dd hh:mm'" :text="new Date() "></l-time>
-				</view>
+				</view> -->
 			</view>
 		</view>
 		<!-- 待办 -->
@@ -95,7 +94,7 @@
 				<image class="bar-icon" src="/static/tabbar/app.png" mode=""></image>
 				<view class="bar-title">应用</view>
 			</view>
-			<view class="text-center bar-workframe">
+			<view class="text-center bar-workframe" @click="navToWork">
 				<image class="bar-work" src="/static/tabbar/work.png" mode=""></image>
 			</view>
 			<view class="action" @click="navToUpcoming">
@@ -274,6 +273,11 @@
 					url:'/pages/user/index'
 				})
 			},
+			navToWork(){
+				uni.switchTab({
+					url:'/pages/index/index'
+				})
+			},
 			navToSearch(){
 				uni.navigateTo({
 					url: '/pages/index/search'
@@ -424,6 +428,7 @@
 	position: fixed;
 	top: 0;
 	width: 100vw;
+	background: #FFFFFF;
 	// background: linear-gradient(180deg, #EFF5FF 0%, #FFFFFF 100%);
 	z-index: 10;
 	padding: 0 32upx;

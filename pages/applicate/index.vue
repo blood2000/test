@@ -71,7 +71,7 @@
 			// 获取全部应用列表
 			getAllList() {
 				applicateList().then(res => {
-					const menu = res.data.find(res => res.menuCode === 'a35df88f239b41fe9339ee1ab856b349')
+					const menu = res.data.find(res => res.menuCode === 'effa34f2a138424182c45496e37f6266')
 					this.applicateList = menu? menu.children: [];
 				});
 			},
