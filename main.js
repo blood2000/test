@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App'
 // import './common/css/icon.scss'
-import '@/common/font/index.scss'; // 字体文件
+// import '@/common/font/index.scss'; // 字体文件
 // import '@/common/gIconfont/iconfont.css'; // 字体图标
 // 使用 svg js字体图标
 // require('@/common/gIconfont/iconfont');
