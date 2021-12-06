@@ -204,6 +204,11 @@
 				"selectedIconPath": "static/tabbar/app_cur.png",
 				"text": "应用"
 			},{
+				"pagePath": "pages/index/index",
+				"iconPath": "static/tabbar/mail.png",
+				"selectedIconPath": "static/tabbar/mail_cur.png",
+				"text": "工作台"
+			},{
 				"pagePath": "pages/mailList/index",
 				"iconPath": "static/tabbar/mail.png",
 				"selectedIconPath": "static/tabbar/mail_cur.png",
