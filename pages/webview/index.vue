@@ -30,7 +30,7 @@ export default {
 			title: option.titleName
 		})
 		this.url = baseURL.replace(/8080/, "8099") + option.name
-		this.url = option.name;
+		// this.url = option.name;
 	},
 	methods: {
 	}
