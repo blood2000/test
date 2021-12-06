@@ -95,7 +95,7 @@
 				<image class="bar-icon" src="/static/tabbar/app.png" mode=""></image>
 				<view class="bar-title">应用</view>
 			</view>
-			<view class="text-center bar-workframe">
+			<view class="text-center bar-workframe" @click="navToWork">
 				<image class="bar-work" src="/static/tabbar/work.png" mode=""></image>
 			</view>
 			<view class="action" @click="navToUpcoming">
@@ -274,6 +274,11 @@
 					url:'/pages/user/index'
 				})
 			},
+			navToWork(){
+				uni.switchTab({
+					url:'/pages/index/index'
+				})
+			},
 			navToSearch(){
 				uni.navigateTo({
 					url: '/pages/index/search'
@@ -424,6 +429,7 @@
 	position: fixed;
 	top: 0;
 	width: 100vw;
+	background: #FFFFFF;
 	// background: linear-gradient(180deg, #EFF5FF 0%, #FFFFFF 100%);
 	z-index: 10;
 	padding: 0 32upx;
