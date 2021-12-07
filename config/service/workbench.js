@@ -89,3 +89,14 @@ export function comprehensiveSearch(query) {
 		params: query
 	});
 }
+
+// 修改常用应用
+export function restSysCommonUserMenu(menuCodes) {
+	return uniRequest({
+		url: baseURL + '/system/sysCommonUser/restSysCommonUserMenu',
+		method: 'post',
+		data: {
+			menuCodes: menuCodes
+		}
+	});
+}

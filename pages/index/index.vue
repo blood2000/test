@@ -34,7 +34,7 @@
 			</view>
 		</view>
 		<!-- 应用弹窗 -->
-		<view class="cu-modal drawer-modal justify-end" :class="modalName=='DrawerModalR'?'show':''" @tap="hideModal" @touchmove.stop.prevent="">
+		<!-- <view class="cu-modal drawer-modal justify-end" :class="modalName=='DrawerModalR'?'show':''" @tap="hideModal" @touchmove.stop.prevent="">
 			<view class="cu-dialog" style="flex-basis: 70%;" @tap.stop="">
 				<view :style="{height:statusBarHeight*2 + 'upx'}"></view>
 				<view class="flex align-center justify-between padding border-bottom">
@@ -56,7 +56,7 @@
 					<view style="height: 80upx;"></view>
 				</scroll-view>
 			</view>
-		</view>
+		</view> -->
 		<!-- 通知 -->
 		<view class="app-container margin-mtop padding-m flex align-center justify-between" @click="navToNotice">
 			<image class="notice-img" src="/static/workbench/icon_notice.png" mode=""></image>
@@ -224,27 +224,30 @@
 				});
 			},
 			// 添加常用应用
-			submitAdd(menuCode) {
-				addUsually([menuCode]).then(res => {
-					uni.showToast({title: '添加应用成功！',icon: 'none', duration: 1000});
-					this.getUsuallyList();
-					this.getAllList();
-				});
+			// submitAdd(menuCode) {
+			// 	addUsually([menuCode]).then(res => {
+			// 		uni.showToast({title: '添加应用成功！',icon: 'none', duration: 1000});
+			// 		this.getUsuallyList();
+			// 		this.getAllList();
+			// 	});
+			// },
+			// // 删除常用应用
+			// submitDelete(menuCode) {
+			// 	deleteUsually([menuCode]).then(res => {
+			// 		this.msgSuccess('删除应用成功！');
+			// 		this.getUsuallyList();
+			// 		this.getAllList();
+			// 	});
+			// },
+			showModal() {
+				// this.modalName = e.currentTarget.dataset.target
+				uni.navigateTo({
+					url:"/pages/applicate/addUsually/index"
+				})
 			},
-			// 删除常用应用
-			submitDelete(menuCode) {
-				deleteUsually([menuCode]).then(res => {
-					this.msgSuccess('删除应用成功！');
-					this.getUsuallyList();
-					this.getAllList();
-				});
-			},
-			showModal(e) {
-				this.modalName = e.currentTarget.dataset.target
-			},
-			hideModal(e) {
-				this.modalName = null
-			},
+			// hideModal(e) {
+			// 	this.modalName = null
+			// },
 			// 车辆列表触底事件
 			scrolltolower(){
 				if (this.dataOver) return;

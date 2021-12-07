@@ -35,7 +35,7 @@
 </template>
 
 <script>
-	import { applicateList }from "@/config/service/workbench.js"
+	import { applicateList , listUsually , restSysCommonUserMenu }from "@/config/service/workbench.js"
 	import NonePage from "@/components/NonePage/NonePage.vue"
 	export default {
 		components: {
@@ -53,6 +53,7 @@
 		},
 		onLoad() {
 			this.getAllList();
+			this.getUsuallyList();
 			uni.hideTabBar({});
 			const res = uni.getSystemInfoSync()
 			this.system = res.platform;
@@ -68,10 +69,16 @@
 			},
 			// 获取全部应用列表
 			getAllList() {
+				uni.showLoading({mask: true});
 				applicateList().then(res => {
-					console.log(res);
 					const menu = res.data.find(res => res.menuCode === 'effa34f2a138424182c45496e37f6266')
 					this.applicateList = menu? menu.children: [];
+					uni.hideLoading();
+				});
+			},
+			getUsuallyList(){
+				listUsually().then(res => {
+					this.usuallyList = res.data;
 				});
 			},
 			addUsuallyList(item) {
@@ -85,11 +92,24 @@
 				this.usuallyList.splice(delIndex,1)
 			},
 			check(item){
-				return this.usuallyList.find(res => res.menuCode === item.menuCode) ? true : false
+				return !!this.usuallyList.find(res => res.menuCode === item.menuCode)
 			},
 			submit(){
 				const codes = this.usuallyList.map(res => res.menuCode)
-				console.log(codes);
+				if(codes.length === 0){
+					uni.showToast({title: '请选择常用应用',icon: 'none', duration: 2000})
+				}else{
+					restSysCommonUserMenu(codes).then(res => {
+						uni.showToast({title: '变更成功',icon: 'none', duration: 1000})
+						setTimeout(() => {
+							uni.switchTab({
+								url:'/pages/index/index'
+							})
+						},1000)
+					}).catch(e => {
+						console.log(e);
+					})
+				}
 			}
 		}
 	}
