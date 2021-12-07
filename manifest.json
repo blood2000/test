@@ -13,7 +13,7 @@
         "devServer" : {
             "proxy" : {
                 "/apis" : {
-                    "target" : "http://10.0.0.38:8080",
+                    "target" : "http://10.0.0.75:8080",
                     // "target" : "http://192.168.30.59:8080", // 睿
                     // "target" : "http://192.168.1.22:8080", // 志
                     // "target" : "http://192.168.1.33:8080", // 文
@@ -86,8 +86,8 @@
                 "ad" : {},
                 "maps" : {
                     "amap" : {
-                        "appkey_ios" : "c40922cfc332194c2611f7af31a134a0",
-                        "appkey_android" : "b05b43ec692377c6b5db403dce490501"
+                        "appkey_ios" : "ed7015485331c55aa334a377625b55cf",
+                        "appkey_android" : "cfa0c1098a6a3695c3e47a0d2b5c47be"
                     }
                 },
                 "push" : {
