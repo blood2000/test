@@ -15,7 +15,7 @@ import baseURL from '@/config/index.js';
 export default {
 	data() {
 		return {
-			url: 'http://192.168.30.58:8090/#/pages/transportPlan/index',
+			url: baseURL.replace(/8080/, "8099") + '/#/pages/transportPlan/index',
 			statusBarHeight: this.StatusBar,
 			token: uni.getStorageSync('token'),
 			option: null
@@ -29,7 +29,6 @@ export default {
 		}),
 	},
 	onLoad(option) {
-		// console.log('当前页~~~');
 		// 携带参数
 		this.option = {
 			...option,
@@ -40,10 +39,10 @@ export default {
 		// console.log('携带参数~~~:',JSON.stringify(this.option));
 		
 		// #ifdef APP-PLUS
-		this.url = 'http://192.168.30.58:8090' + '/#/pages/transportPlan/index'
+		this.url = baseURL.replace(/8080/, "8099") + '/#/pages/transportPlan/index'
 		// #endif
 		// #ifdef H5
-		this.url = 'http://124.71.25.3:8099/#/pages/transportPlan/index'
+		this.url = baseURL.replace(/8080/, "8099") + '/#/pages/transportPlan/index'
 		// #endif
 		
 	},
