@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "测试用",
-  "enablePullDownRefresh": false,
-  "usingComponents": {
-    "tki-qrcode": "/components/tki-qrcode/tki-qrcode"
-  }
-}
