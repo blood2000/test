@@ -8,6 +8,10 @@
 import { mapState } from 'vuex';
 import baseURL from '@/config/index.js';
 
+console.log(JSON.stringify(process.env));
+const webViewUrl = 'http://h5.zjjy.zjz1.net' // 正式上线
+// const webViewUrl = 'http://192.168.30.58:8091' // 本地开发
+
 
 
 // 当前页面还要试用微信分享, 及图片下载
@@ -15,7 +19,7 @@ import baseURL from '@/config/index.js';
 export default {
 	data() {
 		return {
-			url: baseURL.replace(/8080/, "8099") + '/#/pages/transportPlan/index',
+			url: webViewUrl + '/#/pages/transportPlan/index',
 			statusBarHeight: this.StatusBar,
 			token: uni.getStorageSync('token'),
 			option: null
@@ -39,10 +43,14 @@ export default {
 		// console.log('携带参数~~~:',JSON.stringify(this.option));
 		
 		// #ifdef APP-PLUS
-		this.url = baseURL.replace(/8080/, "8099") + '/#/pages/transportPlan/index'
+		// this.url = webViewUrl + '/#/pages/transportPlan/index'
+		
+		this.url = webViewUrl + '/#/' + option.name
 		// #endif
 		// #ifdef H5
-		this.url = baseURL.replace(/8080/, "8099") + '/#/pages/transportPlan/index'
+		// this.url = webViewUrl + '/#/pages/transportPlan/index'
+		// this.url = 'http://h5.zjjy.zjz1.net/#/' + option.name
+		this.url = webViewUrl + '/#/' + option.name
 		// #endif
 		
 	},
