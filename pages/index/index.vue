@@ -28,9 +28,9 @@ export default {
 		const res = uni.getSystemInfoSync()
 		this.system = res.platform;
 		// #ifdef APP-PLUS
-		// this.url = 'http://h5.zjjy.zjz1.net/#/pages/workbench/index' // 集运站h5线上
+		this.url = 'http://h5.zjjy.zjz1.net/#/pages/workbench/index' // 集运站h5线上
 		// this.url = 'http://10.0.0.75:8310/#/pages/workbench/index' // 75测试
-		this.url = 'http://192.168.30.54:8091/#/pages/workbench/index' // 本地
+		// this.url = 'http://192.168.30.54:8091/#/pages/workbench/index' // 本地
 		// #endif
 		// #ifdef H5
 		this.url = 'http://192.168.30.54:8091/#/pages/workbench/index'
