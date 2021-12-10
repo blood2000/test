@@ -298,13 +298,13 @@
 				width: 72%;
 			}
 			.form-phone{
-				height: 42upx;
-				width: 34upx;
-				margin-right: 6upx;
+				height: 44upx;
+				width: 44upx;
+				// margin-right: 6upx;
 			}
 			.form-password{
-				height: 40upx;
-				width: 40upx;
+				height: 44upx;
+				width: 44upx;
 			}
 			.form-icon{
 				padding: 6upx 30upx;
