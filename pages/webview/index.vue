@@ -29,7 +29,7 @@ export default {
 		uni.setNavigationBarTitle({
 			title: option.titleName
 		})
-		this.url = baseURL.replace(/8080/, "8099") + option.name
+		this.url = 'http://h5.zjjy.zjz1.net/#/' + option.name
 		// this.url = option.name;
 	},
 	methods: {
