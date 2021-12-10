@@ -35,36 +35,17 @@
 		</view>
 		
 		<!-- 底部操作栏 -->
-		<view :class="system==='android'?'bar-frame-android':system==='ios'?'bar-frame-ios':'bar-frame'" class="cu-bar tabbar bg-white">
-			<view class="action" @click="navToMail">
-				<image class="bar-icon" src="/static/tabbar/mail_cur.png" mode=""></image>
-				<view class="bar-title bar-ontitle">通讯录</view>
-			</view>
-			<view class="action" @click="navToApp">
-				<image class="bar-icon" src="/static/tabbar/app.png" mode=""></image>
-				<view class="bar-title">应用</view>
-			</view>
-			<view class="text-center bar-workframe" @click="navToWork">
-				<image class="bar-work" src="/static/tabbar/work.png" mode=""></image>
-			</view>
-			<view class="action" @click="navToUpcoming">
-				<image class="bar-icon" src="/static/tabbar/upcoming.png" mode=""></image>
-				<view class="bar-title">待办</view>
-			</view>
-			<view class="action" @click="navToUser">
-				<image class="bar-icon" src="/static/tabbar/my.png" mode=""></image>
-				<view class="bar-title">我的</view>
-			</view>
-		</view>
-		<!-- <view style="height: 100upx;"></view> -->
+		<Tabbar :cur="'mail'" :height="false" />
 	</view>
 </template>
 
 <script>
 	import { getAddressBook, getAddressList }from "@/config/service/mail.js"
 	import { DebounceFun }from "@/utils/ddc.js"
+	import Tabbar from '@/components/Tabbar/Tabbar.vue';
 	export default {
 		components: {
+			Tabbar
 		},
 		data() {
 			return {

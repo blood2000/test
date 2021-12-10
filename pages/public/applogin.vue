@@ -1,12 +1,10 @@
 <template>
 	<view class="register">
-		<image class="bg-img" :src="img" mode=""></image>
-		<view class="top-section">
-			<view class="top-title">您好</view>
-			<view class="top-tag">欢迎使用至简集运APP</view>
-		</view>
+		<view :style="{height:statusBarHeight*2+'upx'}"></view>
+		<view class="padding text-right text-bold size32" @click="navToCodeLogin">验证码登录</view>
+		<view class="title">账号密码登录</view>
 		<view class="form-section">
-			<view class="form-frame flex align-center" :class="telno?'border-on':'border-no'">
+			<view class="form-frame flex align-center" :class="telno?'border-on':''">
 				<image class="form-phone" src="/static/icon-phone.png" mode=""></image>
 				<input class="form-input" v-model="form.telno" placeholder="请输入账号" name="input" @focus="focus('telno')" @blur="blur('telno')" />
 			</view>
@@ -16,7 +14,7 @@
 				</view>
 			</view>
 			<view class="text-red margin-stop" style="font-size: 22upx;height: 70upx;">{{!telnoValidate?'账号不能为空':''}}</view>
-			<view class="form-frame flex align-center" :class="password?'border-on':'border-no'">
+			<view class="form-frame flex align-center" :class="password?'border-on':''">
 				<image class="form-password" src="/static/icon-password.png" mode=""></image>
 				<input class="form-input" v-model="form.password" :password="showPassword" placeholder="请输入密码" name="input" @focus="focus('password')" @blur="blur('password')" />
 				<view class="form-icon" @click="changePassword">
@@ -45,6 +43,7 @@
 		},
 		data() {
 			return {
+				statusBarHeight: this.StatusBar, // 状态栏高度
 				form: {
 					telno: null,
 					password: null
@@ -199,10 +198,14 @@
 			blur(type) {
 				setTimeout(() => {
 					if(type === 'telno') {
-						this.form.telno = this.form.telno.replace(/[, ]/g,'')
 						this.telno = false;
-						if (this.form.telno){
-							this.telnoValidate = true;
+						if(this.form.telno){
+							this.form.telno = this.form.telno.replace(/[, ]/g,'')
+							if(this.form.telno) {
+								this.telnoValidate = true;
+							} else {
+								this.telnoValidate = false;
+							}
 						} else {
 							this.telnoValidate = false;
 						}
@@ -216,12 +219,25 @@
 					}
 				})
 				
+			},
+			navToCodeLogin() {
+				uni.reLaunch({
+					url: '/pages/public/login'
+				})
 			}
 		}
 	}
 </script>
 
 <style lang="scss" scoped>
+	.title{
+		margin-top: 150upx;
+		text-align: center;
+		font-family: 'PingFang Regular';
+		font-size: 56upx;
+		font-weight: bold;
+		color: #000000;
+	}
 	.register{
 		background-color: #FFFFFF;
 		height: 100vh;
@@ -257,20 +273,24 @@
 	.form-section{
 		position: relative;
 		z-index: 6;
-		margin-top: 110upx;
+		margin-top: 100upx;
 		background-color: #FFFFFF;
 		width: 100%;
 		// height: 100vh;
 		border-radius: 50upx 50upx 0 0;
-		padding: 70upx 70upx 0;
+		padding: 54upx 54upx 0;
 		.border-on{
-			border-bottom: 3upx solid #4478E4;
+			border: 3upx solid #4478E4;
 		}
 		.border-no{
-			border-bottom: 1upx solid #E6E6E6;
+			border: 1upx solid #E6E6E6;
 		}
 		.form-frame{
-			padding-bottom: 20upx;
+			// margin: 0 0 37upx;
+			padding: 36upx 24upx;
+			height: 96upx;
+			background: #F8F8F8;
+			border-radius: 10upx;
 			.form-input{
 				margin-left: 30upx;
 				padding-left: 30upx;
@@ -299,10 +319,10 @@
 			z-index: 10;
 			height: 0;
 			top: 10upx;
-			left: 70upx;
+			left: 90upx;
 			.account-cont{
 				max-height: 300upx;
-				width: 540upx;
+				width: 550upx;
 				border: 1upx solid #ebebeb;
 				background-color: #F6F2FF;
 				border-radius: 10upx;

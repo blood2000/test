@@ -1,0 +1,111 @@
+<template>
+	<view>
+		<!-- 底部操作栏 -->
+		<view
+		 class="cu-bar tabbar bg-white bar-frame"
+		 :style="{background: skinList.find(res => res.mark === 'tabbg')?'url(' + skinList.find(res => res.mark === 'tabbg').url + ') 0% 0% / 100% 100%':'#FFFFFF' }"
+		>
+			<!-- 待办 -->
+			<view v-if="cur === 'todo'" class="action" @click="navToUpcoming">
+				<image class="bar-icon" :src="skinList.find(res => res.mark === 'ontodo')?skinList.find(res => res.mark === 'ontodo').url:'/static/tabbar/upcoming_cur.png'" mode=""></image>
+				<view class="bar-title" :style="{color: ontabcolor}">待办</view>
+			</view>
+			<view v-if="cur !== 'todo'" class="action" @click="navToUpcoming">
+				<image class="bar-icon" :src="skinList.find(res => res.mark === 'todo')?skinList.find(res => res.mark === 'todo').url:'/static/tabbar/upcoming.png'" mode=""></image>
+				<view class="bar-title" :style="{color: tabcolor}">待办</view>
+			</view>
+			<!-- 应用 -->
+			<view v-if="cur === 'app'" class="action" @click="navToApp">
+				<image class="bar-icon" :src="skinList.find(res => res.mark === 'onapp')?skinList.find(res => res.mark === 'onapp').url:'/static/tabbar/app_cur.png'" mode=""></image>
+				<view class="bar-title" :style="{color: ontabcolor}">应用</view>
+			</view>
+			<view v-if="cur !== 'app'" class="action" @click="navToApp">
+				<image class="bar-icon" :src="skinList.find(res => res.mark === 'app')?skinList.find(res => res.mark === 'app').url:'/static/tabbar/app.png'" mode=""></image>
+				<view class="bar-title" :style="{color: tabcolor}">应用</view>
+			</view>
+			<!-- 工作台 -->
+			<view class="text-center bar-workframe" @click="navToWork">
+				<image class="bar-work" :src="skinList.find(res => res.mark === 'work')?skinList.find(res => res.mark === 'work').url:'/static/tabbar/work.png'" mode=""></image>
+			</view>
+			<!-- 通讯录 -->
+			<view v-if="cur === 'mail'" class="action" @click="navToMail">
+				<image class="bar-icon" :src="skinList.find(res => res.mark === 'onmail')?skinList.find(res => res.mark === 'onmail').url:'/static/tabbar/mail_cur.png'" mode=""></image>
+				<view class="bar-title" :style="{color: ontabcolor}">通讯录</view>
+			</view>
+			<view v-if="cur !== 'mail'" class="action" @click="navToMail">
+				<image class="bar-icon" :src="skinList.find(res => res.mark === 'mail')?skinList.find(res => res.mark === 'mail').url:'/static/tabbar/mail.png'" mode=""></image>
+				<view class="bar-title" :style="{color: tabcolor}">通讯录</view>
+			</view>
+			<!-- 我的 -->
+			<view v-if="cur === 'my'" class="action" @click="navToUser">
+				<image class="bar-icon" :src="skinList.find(res => res.mark === 'onmy')?skinList.find(res => res.mark === 'onmy').url:'/static/tabbar/my_cur.png'" mode=""></image>
+				<view class="bar-title" :style="{color: ontabcolor}">我的</view>
+			</view>
+			<view v-if="cur !== 'my'" class="action" @click="navToUser">
+				<image class="bar-icon" :src="skinList.find(res => res.mark === 'my')?skinList.find(res => res.mark === 'my').url:'/static/tabbar/my.png'" mode=""></image>
+				<view class="bar-title" :style="{color: tabcolor}">我的</view>
+			</view>
+		</view>
+		<view v-if="height" style="height: 100upx;"></view>
+	</view>
+</template>
+
+<script>
+	export default {
+		props: {
+			cur: {
+				type: String,
+				default: ''
+			},
+			height: {
+				type: Boolean,
+				default: false
+			}
+		},
+		data() {
+			return {
+				skinList: uni.getStorageSync('skin'), // 主题样式
+				tabcolor: '',
+				ontabcolor: '',
+			}
+		},
+		mounted() {
+			console.log(this.skinList);
+			this.ontabcolor = this.skinList.find(res => res.mark === 'ontabcolor')?this.skinList.find(res => res.mark === 'ontabcolor').url:'#1678FF';
+			this.tabcolor = this.skinList.find(res => res.mark === 'tabcolor')?this.skinList.find(res => res.mark === 'tabcolor').url:'#ACACAC';
+		},
+		onLoad() {
+		},
+		methods: {
+			navToUpcoming(){
+				uni.setStorageSync('TabCur', 1);
+				uni.switchTab({
+					url:'/pages/upcoming/index'
+				})
+			},
+			navToApp(){
+				uni.switchTab({
+					url:'/pages/applicate/index'
+				})
+			},
+			navToMail(){
+				uni.switchTab({
+					url:'/pages/mailList/index'
+				})
+			},
+			navToUser(){
+				uni.switchTab({
+					url:'/pages/user/index'
+				})
+			},
+			navToWork(){
+				uni.switchTab({
+					url:'/pages/index/index'
+				})
+			}
+		}
+	}
+</script>
+
+<style lang="scss" scoped>
+</style>

@@ -28,35 +28,16 @@
 		<button class="btn-yes" type="default" @click="loginOut">退出登录</button>
 		
 		<!-- 底部操作栏 -->
-		<view :class="system==='android'?'bar-frame-android':system==='ios'?'bar-frame-ios':'bar-frame'" class="cu-bar tabbar bg-white">
-			<view class="action" @click="navToMail">
-				<image class="bar-icon" src="/static/tabbar/mail.png" mode=""></image>
-				<view class="bar-title">通讯录</view>
-			</view>
-			<view class="action" @click="navToApp">
-				<image class="bar-icon" src="/static/tabbar/app.png" mode=""></image>
-				<view class="bar-title">应用</view>
-			</view>
-			<view class="text-center bar-workframe" @click="navToWork">
-				<image class="bar-work" src="/static/tabbar/work.png" mode=""></image>
-			</view>
-			<view class="action" @click="navToUpcoming">
-				<image class="bar-icon" src="/static/tabbar/upcoming.png" mode=""></image>
-				<view class="bar-title">待办</view>
-			</view>
-			<view class="action" @click="navToUser">
-				<image class="bar-icon" src="/static/tabbar/my_cur.png" mode=""></image>
-				<view class="bar-title bar-ontitle">我的</view>
-			</view>
-		</view>
-		<view style="height: 100upx;"></view>
+		<Tabbar :cur="'my'" :height="true" />
 	</view>
 </template>
 
 <script>
 	import { loginOut }from "@/config/service/user.js"
+	import Tabbar from '@/components/Tabbar/Tabbar.vue';
 	export default {
 		components: {
+			Tabbar
 		},
 		data() {
 			return {
@@ -91,7 +72,7 @@
 					uni.showToast({title: '退出登录成功',icon: 'none', duration: 1000});
 					setTimeout(() => {
 						uni.reLaunch({
-							url: '/pages/public/login'
+							url: '/pages/public/applogin'
 						});
 					}, 1000)
 				})

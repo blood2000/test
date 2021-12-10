@@ -52,7 +52,7 @@ uniRequest.interceptors.response.use(
 			});
 			setTimeout(() => {
 				uni.reLaunch({
-					url: '/pages/public/login'
+					url: '/pages/public/applogin'
 				});
 			}, 1000)
 			return Promise.reject(res.data);

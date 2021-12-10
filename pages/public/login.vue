@@ -1,5 +1,7 @@
 <template>
 	<view class="container">
+		<view :style="{height:statusBarHeight*2+'upx'}"></view>
+		<view class="padding text-right text-bold size32" @click="navToPassward">账号密码登录</view>
 		<view class="title">手机号验证登录</view>
 		<view class="frame flex align-center">
 			<view class="area">+86<text class="cuIcon-unfold margin-sleft"></text><text class="text-gray margin-sleft margin-mright"> | </text></view>
@@ -18,6 +20,7 @@
 		},
 		data(){
 			return {
+				statusBarHeight: this.StatusBar, // 状态栏高度
 				params: {
 					telno: uni.getStorageSync('telno') || null,
 					type: 'login'
@@ -35,15 +38,21 @@
 							url: '/pages/public/code'
 						})
 					}).catch(() => {
-						uni.setStorageSync('telno', this.params.telno);
-						uni.navigateTo({
-							url: '/pages/public/code'
-						})
+						// uni.setStorageSync('telno', this.params.telno);
+						// uni.navigateTo({
+						// 	url: '/pages/public/code'
+						// })
 					})
 				}else {
 					this.msgSuccess('请先输入手机号');
 				}
+			},
+			navToPassward() {
+				uni.reLaunch({
+					url: '/pages/public/applogin'
+				})
 			}
+			
 		},
 
 	}
@@ -54,7 +63,7 @@
 		background: #fff;
 	}
 	.title{
-		margin-top: 220upx;
+		margin-top: 150upx;
 		text-align: center;
 		font-family: 'PingFang Regular';
 		font-size: 56upx;

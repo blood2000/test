@@ -14,6 +14,7 @@ baseURL = '/apis';
 // baseURL = 'http://192.168.30.134:8080'; // 志
 // baseURL = 'https://api.chaohaoyun.cn'; // 正式
 baseURL = 'http://124.71.25.3:8080'; // 正式
+
 // #endif
 
 // #ifdef MP

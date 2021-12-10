@@ -1,7 +1,7 @@
 <template>
 	<view class="container">
 		<view :style="{height:statusBarHeight*2+'upx'}"></view>
-		<view class="padding"><text class="cuIcon-back size40"></text></view>
+		<view class="padding" @click="navBack"><text class="cuIcon-back size40"></text></view>
 		<view class="title">请输入验证码</view>
 		<view class="cont">验证码已发送到 +86 {{params.telno}}</view>
 		<view class="tag">请输入至简集运登录的验证码</view>
@@ -129,6 +129,11 @@
 						url: "/pages/index/index"
 					})
 				}, 1000)
+			},
+			navBack() {
+				uni.reLaunch({
+					url: '/pages/public/login'
+				})
 			}
 		},
 

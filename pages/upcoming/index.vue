@@ -4,33 +4,13 @@
 			<image class="todo-img" src="/static/workbench/icon_expect.png" mode=""></image>
 		</view>
 		<!-- 底部操作栏 -->
-		<view :class="system==='android'?'bar-frame-android':system==='ios'?'bar-frame-ios':'bar-frame'" class="cu-bar tabbar bg-white">
-			<view class="action" @click="navToMail">
-				<image class="bar-icon" src="/static/tabbar/mail.png" mode=""></image>
-				<view class="bar-title">通讯录</view>
-			</view>
-			<view class="action" @click="navToApp">
-				<image class="bar-icon" src="/static/tabbar/app.png" mode=""></image>
-				<view class="bar-title">应用</view>
-			</view>
-			<view class="text-center bar-workframe" @click="navToWork">
-				<image class="bar-work" src="/static/tabbar/work.png" mode=""></image>
-			</view>
-			<view class="action" @click="navToUpcoming">
-				<image class="bar-icon" src="/static/tabbar/upcoming_cur.png" mode=""></image>
-				<view class="bar-title bar-ontitle">待办</view>
-			</view>
-			<view class="action" @click="navToUser">
-				<image class="bar-icon" src="/static/tabbar/my.png" mode=""></image>
-				<view class="bar-title">我的</view>
-			</view>
-		</view>
-		<view style="height: 100upx;"></view>
+		<Tabbar :cur="'todo'" :height="true" />
 	</view>
 </template>
 
 <script>
 	import card from "./component/card";
+	import Tabbar from '@/components/Tabbar/Tabbar.vue';
 	import {
 		myProcessList,
 		todoList,
@@ -42,7 +22,8 @@
 	export default {
 		components: {
 			card,
-			NonePage
+			NonePage,
+			Tabbar
 		},
 		data() {
 			return {
