@@ -30,8 +30,9 @@ export default {
 			title: option.titleName
 		})
 		this.url = 'http://h5.zjjy.zjz1.net/#/' + option.name
-		console.log(this.url);
+		// this.url = 'http://192.168.30.54:8091/#/' + option.name
 		// this.url = option.name;
+		// console.log(this.url)
 	},
 	methods: {
 	}
