@@ -30,6 +30,7 @@ export default {
 			title: option.titleName
 		})
 		this.url = 'http://h5.zjjy.zjz1.net/#/' + option.name
+		console.log(this.url);
 		// this.url = option.name;
 	},
 	methods: {
