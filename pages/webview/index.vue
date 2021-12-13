@@ -29,7 +29,7 @@ export default {
 		uni.setNavigationBarTitle({
 			title: option.titleName
 		})
-		if (baseURL.indexOf("h5.zjjy.zjz1.net") !== -1) {
+		if (baseURL.indexOf("124.71.25.3") !== -1) {
 			this.url = 'http://h5.zjjy.zjz1.net/#/' + option.name // 集运站h5线上
 		} else if (baseURL.indexOf("10.0.0.75") !== -1) {
 			this.url = 'http://10.0.0.75:8310/#/' + option.name // 75测试
