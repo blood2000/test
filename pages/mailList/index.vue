@@ -83,7 +83,7 @@
 				getAddressBook('7beacecadf4341fa81232781beb71b08').then(response => {
 					this.orgInfo = response.data;
 					// this.handleShowOrg(response.data.orgIdByUser, response.data.orgCodeByUser, this.orgInfo.orgNameByUser);
-					this.getLeader('110409', '66389dbe97ec4c86ab2e8afa602b2981')
+					this.getLeader(response.data.rootOrgId, response.data.rootOrgCode)
 					uni.hideLoading();
 				});
 			},
