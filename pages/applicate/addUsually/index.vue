@@ -99,7 +99,7 @@
 				if(codes.length === 0){
 					uni.showToast({title: '请选择常用应用',icon: 'none', duration: 2000})
 				}else{
-					restSysCommonUserMenu(codes).then(res => {
+					restSysCommonUserMenu(codes.join()).then(res => {
 						uni.showToast({title: '变更成功',icon: 'none', duration: 1000})
 						setTimeout(() => {
 							uni.switchTab({
