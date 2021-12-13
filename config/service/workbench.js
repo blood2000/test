@@ -91,12 +91,12 @@ export function comprehensiveSearch(query) {
 }
 
 // 修改常用应用
-export function restSysCommonUserMenu(menuCodes) {
+export function restSysCommonUserMenu(menuCode) {
 	return uniRequest({
 		url: baseURL + '/system/sysCommonUser/restSysCommonUserMenu',
 		method: 'post',
 		data: {
-			menuCodes: menuCodes
+			menuCode: menuCode
 		}
 	});
 }

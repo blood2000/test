@@ -180,7 +180,7 @@
 			.del{
 				width: 26rpx;
 				height: 26rpx;
-				line-height: 16rpx;
+				line-height: 22rpx;
 				border-radius: 50%;
 				border: #FFFFFF solid 1px;
 				color: #FFFFFF;
