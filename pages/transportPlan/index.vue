@@ -43,9 +43,14 @@ export default {
 		// console.log('携带参数~~~:',JSON.stringify(this.option));
 		
 		// #ifdef APP-PLUS
+		if (baseURL.indexOf("h5.zjjy.zjz1.net") !== -1) {
+			this.url = 'http://h5.zjjy.zjz1.net/#/' + option.name // 集运站h5线上
+		} else if (baseURL.indexOf("10.0.0.75") !== -1) {
+			this.url = 'http://10.0.0.75:8310/#/' + option.name // 75测试
+		}
+		// this.url = 'http://192.168.30.54:8090/#/pages/workbench/index' // 本地
 		// this.url = webViewUrl + '/#/pages/transportPlan/index'
-		
-		this.url = webViewUrl + '/#/' + option.name
+		// this.url = webViewUrl + '/#/' + option.name
 		// #endif
 		// #ifdef H5
 		// this.url = webViewUrl + '/#/pages/transportPlan/index'

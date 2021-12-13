@@ -29,10 +29,12 @@ export default {
 		uni.setNavigationBarTitle({
 			title: option.titleName
 		})
-		this.url = 'http://h5.zjjy.zjz1.net/#/' + option.name
-		// this.url = 'http://192.168.30.54:8091/#/' + option.name
-		// this.url = option.name;
-		// console.log(this.url)
+		if (baseURL.indexOf("h5.zjjy.zjz1.net") !== -1) {
+			this.url = 'http://h5.zjjy.zjz1.net/#/' + option.name // 集运站h5线上
+		} else if (baseURL.indexOf("10.0.0.75") !== -1) {
+			this.url = 'http://10.0.0.75:8310/#/' + option.name // 75测试
+		}
+		// this.url = 'http://192.168.30.54:8090/#/pages/workbench/index' // 本地
 	},
 	methods: {
 	}
