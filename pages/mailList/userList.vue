@@ -6,6 +6,7 @@
 			<view class="top-frame flex align-center justify-between text-black">
 				<text class="cuIcon-back" @click="navBack"></text>
 				<view class="top-title">{{tabList.length?tabList[0].orgName:'通讯录'}}</view>
+				<!-- <view class="top-title">福建至简至一信息科技有限公司</view> -->
 				<text style="width: 20upx;"></text>
 			</view>
 			<scroll-view scroll-x class="tabbar">
@@ -16,6 +17,15 @@
 			</scroll-view>
 		</view>
 		<view class="list-section">
+			<!-- 主管列表 -->
+			<view v-for="(res, index) in leaderList" :key="res.userCode"  class="organize flex align-center" @click="navToUserInfo(res)">
+				<image class="organize-icon shadow-warp bg-white" :src="res.avatar? res.avatar:avatar" mode="aspectFill"></image>
+				<view>
+					<view class="organize-title">{{ res.userName }}</view>
+					<view class="organize-position">{{ res.postName }}</view>
+				</view>
+			</view>
+			<!-- 组织列表 -->
 			<view v-for="(item, index) in orgList" :key="item.orgCode" class="organize flex align-center justify-between" @click="getList(item.orgId, item.orgCode)">
 				<view class="flex align-center">
 					<image class="organize-icon" src="/static/icons/svg/mail/mail-orgnode.svg" mode=""></image>
@@ -23,8 +33,9 @@
 				</view>
 				<text v-if="index !== tabList.length-1" class="cuIcon-right text-gray"></text>
 			</view>
+			<!-- 用户列表 -->
 			<view v-for="(res, index) in userList" :key="res.userCode"  class="organize flex align-center" @click="navToUserInfo(res)">
-				<image class="organize-icon shadow-warp bg-white" :src="res.avatar? res.avatar:avatar" mode=""></image>
+				<image class="organize-icon shadow-warp bg-white" :src="res.avatar? res.avatar:avatar" mode="aspectFill"></image>
 				<view>
 					<view class="organize-title">{{ res.userName }}</view>
 					<view class="organize-position">{{ res.postName }}</view>
@@ -45,6 +56,7 @@
 				addInfo: {},
 				orgList: [],
 				userList: [],
+				leaderList: [],
 				tabList: [],
 				statusBarHeight: 0,
 				titleHeight: 0,
@@ -87,7 +99,9 @@
 				getAddressList(orgId, orgCode).then(res => {
 					this.orgList = res.data.childOrgList;
 					this.userList = res.data.childUserList;
+					this.leaderList = res.data.childLeaderUserList;
 					this.tabList = res.data.parentDeptList;
+					// this.tabList.splice(0, 1);
 					uni.hideLoading();
 				});
 			},
