@@ -82,7 +82,7 @@
 		methods: {
 			 ...mapMutations(['SET_INFO', 'SET_NICKNAME']),
 			loginConfirm(){
-				if (this.telnoValidate && this.passwordValidate){
+				if (this.telnoValidate && this.passwordValidate && this.form.password && this.form.telno){
 					// 设置账号密码缓存
 					if (this.remember) {
 						uni.setStorageSync('telno', this.form.telno);
@@ -137,6 +137,8 @@
 						this.form.password = undefined;
 						uni.hideLoading();
 					})
+				} else {
+					this.msgSuccess('请输入手机号与密码');
 				}
 			},
 			// 绑定设备唯一标识cid
