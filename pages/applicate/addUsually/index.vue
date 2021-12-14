@@ -29,8 +29,10 @@
 			</view>
 		</view>
 		<NonePage v-if="applicateList.length===0" :msg="'暂无应用，请联系管理员授权'" />
-		<view style="height: 100upx;"></view>
-		<button class="btn" type="primary" size="default" @tap='submit'>确认变更常用应用</button>
+		<view style="height: 160upx;"></view>
+		<view class="bottom-frame bg-white">
+			<button class="btn" type="primary" size="default" @tap='submit'>确认变更常用应用</button>
+		</view>
 	</view>
 </template>
 
@@ -161,6 +163,7 @@
 	
 }
 .usually-section{
+	width: 100%;
 	padding-top: 10rpx;
 	overflow-x: auto;
 	text-align: left;
@@ -200,12 +203,16 @@
 	}
 	
 }
-.btn{
-	width: 85vw;
+.bottom-frame{
 	position: fixed;
-	margin:auto;
 	left:0;
-	right:0;
-	bottom: 60rpx;
+	bottom: 0;
+	padding: 25upx 54upx;
+	width: 100%;
+	.btn{
+		// width: 85vw;
+		margin:auto;
+	}
 }
+
 </style>
