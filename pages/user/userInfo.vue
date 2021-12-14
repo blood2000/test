@@ -55,7 +55,7 @@
 						<view class="text-cont">{{ userInfo.org?userInfo.org.orgName:'暂无' }}</view>
 					</view>
 				</view>
-				<view class="cu-item">
+				<!-- <view class="cu-item">
 					<view class="content">
 						<text class="text-title">职位</text>
 					</view>
@@ -78,7 +78,7 @@
 					<view class="action">
 						<view class="text-cont">{{ userInfo.createTime?parseTime(userInfo.createTime, '{y}-{m}-{d}'):'暂无' }}</view>
 					</view>
-				</view>
+				</view> -->
 				<view v-if="userInfo.orgId === 110415 && cid" class="cu-item margin-mtop">
 					<view class="content">
 						<text class="text-title">设备唯一标识</text>
