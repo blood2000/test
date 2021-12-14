@@ -14,6 +14,7 @@
             "proxy" : {
                 "/apis" : {
                     "target" : "http://10.0.0.75:8080", // 测试
+
                     // "target" : "http://124.71.25.3:8080", // 正式
                     // "target" : "http://192.168.30.61:8080", // 同
                     // "target" : "http://192.168.30.59:8080", // 睿
@@ -83,7 +84,15 @@
                 ]
             },
             /* ios打包配置 */
-            "ios" : {},
+            "ios" : {
+                "privacyDescription" : {
+                    "NSPhotoLibraryUsageDescription" : "获取相册图片，更换用户头像",
+                    "NSPhotoLibraryAddUsageDescription" : "获取相册图片，更换用户头像",
+                    "NSLocationWhenInUseUsageDescription" : "获取用户当前定位信息",
+                    "NSLocationAlwaysUsageDescription" : "获取用户当前定位信息",
+                    "NSLocationAlwaysAndWhenInUseUsageDescription" : "获取用户当前定位信息"
+                }
+            },
             /* SDK配置 */
             "sdkConfigs" : {
                 "ad" : {},
@@ -134,6 +143,9 @@
                         "spotlight@3x" : "unpackage/res/icons/120x120.png"
                     }
                 }
+            },
+            "splashscreen" : {
+                "useOriginalMsgbox" : true
             }
         }
     },
