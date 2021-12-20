@@ -1,8 +1,9 @@
 <template>
 	<view class="upcomingPage">
-		<view class="flex align-center justify-center" style="height: 800upx;">
+		<!-- <view class="flex align-center justify-center" style="height: 800upx;">
 			<image class="todo-img" src="/static/workbench/icon_expect.png" mode=""></image>
-		</view>
+		</view> -->
+		<NonePage v-if="applicateList.length===0" :msg="'暂无数据'" />
 		<!-- 底部操作栏 -->
 		<Tabbar :cur="'todo'" :height="true" />
 	</view>
