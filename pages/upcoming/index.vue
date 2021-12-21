@@ -3,7 +3,40 @@
 		<!-- <view class="flex align-center justify-center" style="height: 800upx;">
 			<image class="todo-img" src="/static/workbench/icon_expect.png" mode=""></image>
 		</view> -->
-		<NonePage :msg="'暂无数据'" />
+		<view class="app-container padding-m margin-mtop">
+			<view class="flex align-center justify-between">
+				 <!-- <text class="text-red">{{todoTotal}}</text> -->
+				<view class="todo-title">今日事项</view>
+				<!-- <view class="text-gray" @click="navToUpcoming">更多<text class="cuIcon-right"></text></view> -->
+			</view>
+			<view class="todo-frame flex align-center justify-between">
+				<view class="flex align-center">
+					<view class="todo-type" :style="{background: '#51A3F7' }">
+						待办
+					</view>
+					<view class="margin-mleft" style="max-width: 450upx;">
+						<view class="text-bold ellipsis">请根据当天收发合同情况核对运输计划</view>
+						<view class="size24 text-tag margin-stop">12/11 15:33</view>
+					</view>
+				</view>
+				<!-- <l-time class="margin-mleft" color="#999" computeMax="MM" :dateFormat="'MM/dd hh:mm'" :text="new Date()"></l-time> -->
+			</view>
+			<view class="todo-frame flex align-center justify-between">
+				<view class="flex align-center">
+					<view class="todo-type" :style="{background: '#51A3F7' }">
+						待办
+					</view>
+					<view class="margin-mleft" style="max-width: 450upx;">
+						<view class="text-bold ellipsis">今日如有新增车辆，请预先在运力管理中进行创建</view>
+						<view class="size24 text-tag margin-stop">12/11 15:33</view>
+					</view>
+				</view>
+				<!-- <l-time class="margin-mleft" color="#999" computeMax="MM" :dateFormat="'MM/dd hh:mm'" :text="new Date()"></l-time> -->
+			</view>
+			<!-- <view class="flex align-center justify-center" style="height: 500upx;">
+				<image class="todo-img" src="/static/workbench/icon_expect.png" mode=""></image>
+			</view> -->
+		</view>
 		<!-- 底部操作栏 -->
 		<Tabbar :cur="'todo'" :height="true" />
 	</view>
@@ -71,6 +104,30 @@
 </script>
 
 <style lang="scss" scoped>
+	.todo-title{
+		font-size: 32upx;
+		font-weight: bold;
+		color: #333333;
+	}
+	.todo-type{
+		text-align: center;
+		width: 84upx;
+		height: 84upx;
+		background: #51A3F7;
+		border-radius: 50%;
+		font-size: 24upx;
+		font-weight: 400;
+		line-height: 84upx;
+		color: #FFFFFF;
+	}
+	.app-container{
+		.todo-frame{
+			padding: 30upx 0;
+		}
+		.todo-frame + .todo-frame{
+			border-top: 1upx solid #EBEBEB;
+		}
+	}
 	.upcomingPage{
 		display: flex;
 		flex-direction: column;

@@ -247,8 +247,8 @@
 					},
 					header: {
 						"Content-Type": "multipart/form-data",
-						"Produce-Code": "7beacecadf4341fa81232781beb71b08",
-						"App-Code": "07072c4c302f475d995f832ec8053e9b",
+						"Produce-Code": "2c3c8c43b487432b9d67934a6c4dcbbe",
+						"App-Code": "f3209f6c7353414e8dbb94dd23cf8b91",
 						"App-Type": "2",
 						"App-Version": "1.0",
 						"Authorization": uni.getStorageSync('token'),
@@ -262,8 +262,8 @@
 						console.log(
 						{
 							"Content-Type": "multipart/form-data",
-							"Produce-Code": "7beacecadf4341fa81232781beb71b08",
-							"App-Code": "07072c4c302f475d995f832ec8053e9b",
+							"Produce-Code": "2c3c8c43b487432b9d67934a6c4dcbbe",
+							"App-Code": "f3209f6c7353414e8dbb94dd23cf8b91",
 							"App-Type": "2",
 							"App-Version": "1.0",
 							"Authorization": uni.getStorageSync('token'),
