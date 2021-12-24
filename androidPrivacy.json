@@ -2,7 +2,7 @@
     "version" : "1",
     "prompt" : "template",
     "title" : "服务协议和隐私政策",
-    "message" : "　　请你务必审慎阅读、充分理解“服务协议”和“隐私政策”各条款，包括但不限于：为了更好的向你提供服务，我们需要收集你的设备标识、操作日志等信息用于分析、优化应用性能。<br/>　　你可阅读<a href=\"http://h5.zjjy.zjz1.net/#/pages/protocol/userAgreement\">《服务协议》</a>和<a href=\"http://h5.zjjy.zjz1.net/#/pages/protocol/privacyPolicy\">《隐私政策》</a>了解详细信息。如果你同意，请点击下面按钮开始接受我们的服务。",
+    "message" : "　　请你务必审慎阅读、充分理解“服务协议”和“隐私政策”各条款，包括但不限于：为了更好的向你提供服务，我们需要收,集你的设备标识、操作日志等信息用于分析、优化应用性能。<br/>　　你可阅读<a href=\"http://124.71.25.3:8099/#/pages/protocol/userAgreement\">《服务协议》</a>和<a href=\"http://124.71.25.3:8099/#/pages/protocol/privacyPolicy\">《隐私政策》</a>了解详细信息。如果你同意，请点击下面按钮开始接受我们的服务。<br/>　　<br/>　　本平台将依据相关法律法规及协议，基于您的授权，向您申请和使用以下权限和信息：<strong>存储权限</strong>，用于下载及缓存相关文件；<strong>设备信息</strong>：用于推送和安全风控；<strong>消息通知权限</strong>：用于推送审批等重要信息；<strong>相机权限</strong>：用于头像和图片的上传、拍照等。<br/>　　<br/>　　我们将按法律法规要求，采取相应安全保护措施，尽力保护您的个人信息安全可控。",
     "buttonAccept" : "同意并接受",
     "buttonRefuse" : "暂不同意",
     "second" : {
