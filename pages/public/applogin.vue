@@ -82,64 +82,66 @@
 		methods: {
 			 ...mapMutations(['SET_INFO', 'SET_NICKNAME']),
 			loginConfirm(){
-				if (this.telnoValidate && this.passwordValidate && this.form.password && this.form.telno){
-					// 设置账号密码缓存
-					if (this.remember) {
-						uni.setStorageSync('telno', this.form.telno);
-						uni.setStorageSync('password', this.form.password);
-						uni.setStorageSync('remember', this.remember);
-					}else{
-						uni.setStorageSync('remember', this.remember);
-					}
-					uni.showLoading({ mask: true });
-					const que = {
-						telno: this.form.telno,
-						password: btoa(this.form.password)
-					}
-					login(que).then(res => {
-						uni.hideLoading();
-						// 缓存token
-						uni.setStorageSync('token', res.data.access_token);
-						// 获取用户信息
-						getInfo().then(res => {
-							uni.setStorageSync('userInfo', res.data);
-							this.SET_INFO(res.data)
-							this.SET_NICKNAME(res.data.nickName)
-						});
-						// #ifdef APP-PLUS
-						getCid().then(res => {
-							if(res.data) {
-								if(res.data === this.cid) {
-									this.navToIndex();
-								}else{
-									const that = this;
-									uni.showModal({
-										title: '提示',
-										content: '当前设备不是常用设备，是否继续登录？',
-										success: function (res) {
-											if (res.confirm) {
-												that.setCid();
-											} else if (res.cancel) {
-												uni.showToast({title: '取消登录成功',icon: 'none', duration: 1000});
+				setTimeout(() => {
+					if (this.telnoValidate && this.passwordValidate && this.form.password && this.form.telno){
+						// 设置账号密码缓存
+						if (this.remember) {
+							uni.setStorageSync('telno', this.form.telno);
+							uni.setStorageSync('password', this.form.password);
+							uni.setStorageSync('remember', this.remember);
+						}else{
+							uni.setStorageSync('remember', this.remember);
+						}
+						uni.showLoading({ mask: true });
+						const que = {
+							telno: this.form.telno,
+							password: btoa(this.form.password)
+						}
+						login(que).then(res => {
+							uni.hideLoading();
+							// 缓存token
+							uni.setStorageSync('token', res.data.access_token);
+							// 获取用户信息
+							getInfo().then(res => {
+								uni.setStorageSync('userInfo', res.data);
+								this.SET_INFO(res.data)
+								this.SET_NICKNAME(res.data.nickName)
+							});
+							// #ifdef APP-PLUS
+							getCid().then(res => {
+								if(res.data) {
+									if(res.data === this.cid) {
+										this.navToIndex();
+									}else{
+										const that = this;
+										uni.showModal({
+											title: '提示',
+											content: '当前设备不是常用设备，是否继续登录？',
+											success: function (res) {
+												if (res.confirm) {
+													that.setCid();
+												} else if (res.cancel) {
+													uni.showToast({title: '取消登录成功',icon: 'none', duration: 1000});
+												}
 											}
-										}
-									});
+										});
+									}
+								} else {
+									this.setCid();
 								}
-							} else {
-								this.setCid();
-							}
+							})
+							// #endif
+							// #ifndef APP-PLUS
+								this.navToIndex();
+							// #endif
+						}).catch(() => {
+							this.form.password = null;
+							uni.hideLoading();
 						})
-						// #endif
-						// #ifndef APP-PLUS
-							this.navToIndex();
-						// #endif
-					}).catch(() => {
-						this.form.password = undefined;
-						uni.hideLoading();
-					})
-				} else {
-					this.msgSuccess('请输入手机号与密码');
-				}
+					} else {
+						this.msgSuccess('请输入手机号与密码');
+					}
+				}, 100)
 			},
 			// 绑定设备唯一标识cid
 			setCid() {

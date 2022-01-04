@@ -31,13 +31,18 @@
 					console.log(Vue.prototype.StatusBar);
 				}
 			})
-			uni.onTabBarMidButtonTap(() => {
+			// uni.onTabBarMidButtonTap(() => {
+			// 	uni.reLaunch({
+			// 		url: "/pages/index/index",
+			// 		animationType: "slide-in-bottom",
+			// 		animationDuration: 150
+			// 	})
+			// })
+			if (!uni.getStorageSync('token')) {
 				uni.reLaunch({
-					url: "/pages/index/index",
-					animationType: "slide-in-bottom",
-					animationDuration: 150
-				})
-			})
+					url: '/pages/public/applogin'
+				});
+			}
 		},
 		
 		onShow: function() {

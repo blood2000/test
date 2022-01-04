@@ -14,6 +14,7 @@
             "proxy" : {
                 "/apis" : {
                     "target" : "http://10.0.0.75:8080", // 测试
+
                     // "target" : "http://124.71.25.3:8080", // 正式
                     // "target" : "http://192.168.30.61:8080", // 同
                     // "target" : "http://192.168.30.59:8080", // 睿
@@ -80,10 +81,26 @@
                     "<uses-permission android:name=\"android.permission.WAKE_LOCK\"/>",
                     "<uses-permission android:name=\"android.permission.WRITE_EXTERNAL_STORAGE\"/>",
                     "<uses-permission android:name=\"android.permission.WRITE_SETTINGS\"/>"
-                ]
+                ],
+                "permissionExternalStorage" : {
+                    "request" : "none",
+                    "prompt" : "应用保存运行状态等信息，需要获取读写手机存储（系统提示为访问设备上的照片、媒体内容和文件）权限，请允许。"
+                },
+                "permissionPhoneState" : {
+                    "request" : "none",
+                    "prompt" : "为保证您正常、安全地使用，需要获取设备识别码（部分手机提示为获取手机号码）使用权限，请允许。"
+                }
             },
             /* ios打包配置 */
-            "ios" : {},
+            "ios" : {
+                "privacyDescription" : {
+                    "NSPhotoLibraryUsageDescription" : "获取相册图片，更换用户头像",
+                    "NSPhotoLibraryAddUsageDescription" : "获取相册图片，更换用户头像",
+                    "NSLocationWhenInUseUsageDescription" : "获取用户当前定位信息",
+                    "NSLocationAlwaysUsageDescription" : "获取用户当前定位信息",
+                    "NSLocationAlwaysAndWhenInUseUsageDescription" : "获取用户当前定位信息"
+                }
+            },
             /* SDK配置 */
             "sdkConfigs" : {
                 "ad" : {},
@@ -98,8 +115,8 @@
                 },
                 "share" : {
                     "weixin" : {
-                        "appid" : "wx78d05b2dfd8825fd",
-                        "UniversalLinks" : ""
+                        "appid" : "wx123eb1e92603edb6",
+                        "UniversalLinks" : "https://xt.chaohaoyun.cn/"
                     }
                 }
             },
@@ -134,6 +151,9 @@
                         "spotlight@3x" : "unpackage/res/icons/120x120.png"
                     }
                 }
+            },
+            "splashscreen" : {
+                "useOriginalMsgbox" : true
             }
         }
     },

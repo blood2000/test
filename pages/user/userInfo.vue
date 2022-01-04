@@ -55,7 +55,7 @@
 						<view class="text-cont">{{ userInfo.org?userInfo.org.orgName:'暂无' }}</view>
 					</view>
 				</view>
-				<view class="cu-item">
+				<!-- <view class="cu-item">
 					<view class="content">
 						<text class="text-title">职位</text>
 					</view>
@@ -78,7 +78,7 @@
 					<view class="action">
 						<view class="text-cont">{{ userInfo.createTime?parseTime(userInfo.createTime, '{y}-{m}-{d}'):'暂无' }}</view>
 					</view>
-				</view>
+				</view> -->
 				<view v-if="userInfo.orgId === 110415 && cid" class="cu-item margin-mtop">
 					<view class="content">
 						<text class="text-title">设备唯一标识</text>
@@ -247,8 +247,8 @@
 					},
 					header: {
 						"Content-Type": "multipart/form-data",
-						"Produce-Code": "7beacecadf4341fa81232781beb71b08",
-						"App-Code": "07072c4c302f475d995f832ec8053e9b",
+						"Produce-Code": "2c3c8c43b487432b9d67934a6c4dcbbe",
+						"App-Code": "f3209f6c7353414e8dbb94dd23cf8b91",
 						"App-Type": "2",
 						"App-Version": "1.0",
 						"Authorization": uni.getStorageSync('token'),
@@ -262,8 +262,8 @@
 						console.log(
 						{
 							"Content-Type": "multipart/form-data",
-							"Produce-Code": "7beacecadf4341fa81232781beb71b08",
-							"App-Code": "07072c4c302f475d995f832ec8053e9b",
+							"Produce-Code": "2c3c8c43b487432b9d67934a6c4dcbbe",
+							"App-Code": "f3209f6c7353414e8dbb94dd23cf8b91",
 							"App-Type": "2",
 							"App-Version": "1.0",
 							"Authorization": uni.getStorageSync('token'),

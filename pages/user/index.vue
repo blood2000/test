@@ -18,6 +18,18 @@
 						<text class="text-black">产品反馈</text>
 					</view>
 				</view>
+				<view class="cu-item arrow" @click="navToAgreement">
+					<view class="content">
+						<text class="cuIcon-formfill text-blue size36"></text>
+						<text class="text-black">用户协议</text>
+					</view>
+				</view>
+				<view class="cu-item arrow" @click="navToPrivacy">
+					<view class="content">
+						<text class="cuIcon-commandfill text-orange size36"></text>
+						<text class="text-black">隐私政策</text>
+					</view>
+				</view>
 				<!-- <view class="cu-item margin-mtop">
 					<view class="content flex justify-center">
 						<view class="info-title text-red" @click="loginOut">退出登录</view>
@@ -87,30 +99,14 @@
 					url: "/pages/user/feedback"
 				})
 			},
-			navToUpcoming(){
-				uni.setStorageSync('TabCur', 1);
-				uni.switchTab({
-					url:'/pages/upcoming/index'
+			navToAgreement(){
+				uni.navigateTo({
+					url:'/pages/webview/index?name=pages/protocol/userAgreement&titleName=用户协议'
 				})
 			},
-			navToApp(){
-				uni.switchTab({
-					url:'/pages/applicate/index'
-				})
-			},
-			navToMail(){
-				uni.switchTab({
-					url:'/pages/mailList/index'
-				})
-			},
-			navToUser(){
-				uni.switchTab({
-					url:'/pages/user/index'
-				})
-			},
-			navToWork(){
-				uni.switchTab({
-					url:'/pages/index/index'
+			navToPrivacy(){
+				uni.navigateTo({
+					url:'/pages/webview/index?name=pages/protocol/privacyPolicy&titleName=隐私政策'
 				})
 			}
 		}
