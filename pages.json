@@ -181,7 +181,17 @@
 				"enablePullDownRefresh": false,
 				"navigationStyle": "custom"
 			}
-		},{
+		},
+		{
+			"path" : "pages/address/index", 
+			"style" :
+			{
+				"navigationBarTitleText": "地址管理",
+				"enablePullDownRefresh": false,
+				"navigationStyle": "custom"
+			}
+		},
+		{
 			"path" : "pages/applicate/addUsually/index", 
 			"style" :
 			{
