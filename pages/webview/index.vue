@@ -34,7 +34,7 @@ export default {
 		} else if (baseURL.indexOf("10.0.0.75") !== -1) {
 			this.url = 'http://10.0.0.75:8310/#/' + option.name // 75测试
 		}
-		// this.url = 'http://h5.zjjy.zjz1.net/#/' + option.name // 本地
+		// this.url = 'http://192.168.30.54:8090/#/' + option.name // 本地
 	},
 	methods: {
 	}
