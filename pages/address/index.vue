@@ -1,6 +1,6 @@
 <template>
 	<view>
-		<web-view :src="url + '?statusBarHeight=' + statusBarHeight + '&token=' + token +'&location=' + JSON.stringify(location)"></web-view>
+		<web-view :src="webViewUrl"></web-view>
 	</view>
 </template>
 
@@ -14,7 +14,7 @@ export default {
 	},
 	data() {
 		return {
-			location:null,
+			webViewUrl:null,
 			modelId: null,
 			url: null,
 			statusBarHeight: this.StatusBar,
@@ -26,7 +26,7 @@ export default {
 			type: 'wgs84',
 			geocode:true,
 			success: (res => {
-				this.location = res;
+				this.webViewUrl = this.url + '?statusBarHeight=' + this.statusBarHeight + '&token=' + this.token +'&location=' + JSON.stringify(res)
 			}),
 			fail: function (res) {
 				uni.hideLoading();
@@ -38,7 +38,7 @@ export default {
 		} else if (baseURL.indexOf("10.0.0.75") !== -1) {
 			this.url = 'http://10.0.0.75:8310/#/' + option.name // 75测试
 		}
-		// this.url = 'http://192.168.30.89:8090/#/pages/address/index' // 本地
+		// this.url = 'http://192.168.30.89:8090/#/' + option.name // 本地
 	},
 	methods: {
 	}
