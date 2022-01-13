@@ -75,8 +75,10 @@
 			// }
 			this.remember = uni.getStorageSync('remember');
 			if (this.remember) {
-				this.form.telno = uni.getStorageSync('telno');
-				this.form.password = uni.getStorageSync('password');
+				this.$set(this.form, 'telno', uni.getStorageSync('telno'));
+				this.$set(this.form, 'password', uni.getStorageSync('password'));
+				// this.form.telno = uni.getStorageSync('telno');
+				// this.form.password = uni.getStorageSync('password');
 			}
 		},
 		methods: {
