@@ -130,6 +130,13 @@
 				"enablePullDownRefresh": false
 			}
 		},{
+			"path" : "pages/user/set",
+			"style" :
+			{
+				"navigationBarTitleText": "设置",
+				"enablePullDownRefresh": false
+			}
+		},{
 			"path" : "pages/applicate/notificationCenter/website/index",
 			"style" :
 			{

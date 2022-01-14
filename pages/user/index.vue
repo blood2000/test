@@ -30,14 +30,15 @@
 						<text class="text-black">隐私政策</text>
 					</view>
 				</view>
-				<!-- <view class="cu-item margin-mtop">
-					<view class="content flex justify-center">
-						<view class="info-title text-red" @click="loginOut">退出登录</view>
+				<view class="cu-item arrow" @click="navToSet">
+					<view class="content">
+						<text class="cuIcon-settingsfill text-cyan size36"></text>
+						<text class="text-black">设置</text>
 					</view>
-				</view> -->
+				</view>
 			</view>
 		</view>
-		<button class="btn-yes" type="default" @click="loginOut">退出登录</button>
+		<!-- <button class="btn-yes" type="default" @click="loginOut">退出登录</button> -->
 		
 		<!-- 底部操作栏 -->
 		<Tabbar :cur="'my'" :height="true" />
@@ -107,6 +108,11 @@
 			navToPrivacy(){
 				uni.navigateTo({
 					url:'/pages/webview/index?name=pages/protocol/privacyPolicy&titleName=隐私政策'
+				})
+			},
+			navToSet() {
+				uni.navigateTo({
+					url: "/pages/user/set"
 				})
 			}
 		}
