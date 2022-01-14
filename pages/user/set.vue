@@ -12,7 +12,7 @@
 		</view>
 		<button class="btn-yes" type="default" @click="loginOut">退出登录</button>
 		<!-- 底部操作栏 -->
-		<Tabbar :cur="'my'" :height="true" />
+		<!-- <Tabbar :cur="'my'" :height="true" /> -->
 	</view>
 </template>
 
