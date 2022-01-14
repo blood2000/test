@@ -1,7 +1,7 @@
 {
     "name" : "至简集运",
     "appid" : "__UNI__EC88961",
-    "description" : "",
+    "description" : "至简集运",
     "versionName" : "1.0.1",
     "versionCode" : 101,
     "transformPx" : false,
@@ -92,7 +92,8 @@
                 "permissionPhoneState" : {
                     "request" : "none",
                     "prompt" : "为保证您正常、安全地使用，需要获取设备识别码（部分手机提示为获取手机号码）使用权限，请允许。"
-                }
+                },
+                "abiFilters" : [ "armeabi-v7a", "arm64-v8a" ]
             },
             /* ios打包配置 */
             "ios" : {
