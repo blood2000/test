@@ -2,8 +2,8 @@
     "name" : "至简集运",
     "appid" : "__UNI__EC88961",
     "description" : "",
-    "versionName" : "1.0.0",
-    "versionCode" : "100",
+    "versionName" : "1.0.1",
+    "versionCode" : 101,
     "transformPx" : false,
     "networkTimeout" : {
         "request" : 60000
