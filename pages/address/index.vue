@@ -23,7 +23,7 @@ export default {
 	},
 	onLoad(option) {
 		uni.getLocation({
-			type: 'wgs84',
+			type: 'gcj02',
 			geocode:true,
 			success: (res => {
 				this.webViewUrl = this.url + '?statusBarHeight=' + this.statusBarHeight + '&token=' + this.token +'&location=' + JSON.stringify(res)
